@@ -1,0 +1,249 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.1)  2 NOV 2021 13:19
+entering extended mode
+**./IDP_Arbeit_Erkennung_von_Kleiderstücken.tex
+(IDP_Arbeit_Erkennung_von_Kleiderstücken.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27>
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\c@figure=\count188
+\c@table=\count189
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/07/22 3.63 The Babel package
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
+File: babel.def 2021/07/22 3.63 Babel common definitions
+\babel@savecnt=\count190
+\U@D=\dimen139
+\l@unhyphenated=\language79
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count191
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ngerman.l
+df
+Language: ngerman 2021/02/27 v2.13 German support for babel (post-1996 orthogra
+phy)
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ngermanb.
+ldf
+Language: ngermanb 2021/02/27 v2.13 German support for babel (post-1996 orthogr
+aphy)
+Package babel Info: Making " an active character on input line 122.
+)))
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.de
+f
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count192
+\Gm@cntv=\count193
+\c@Gm@tempcnt=\count194
+\Gm@bindingoffset=\dimen140
+\Gm@wd@mp=\dimen141
+\Gm@odd@mp=\dimen142
+\Gm@even@mp=\dimen143
+\Gm@layoutwidth=\dimen144
+\Gm@layoutheight=\dimen145
+\Gm@layouthoffset=\dimen146
+\Gm@layoutvoffset=\dimen147
+\Gm@dimlist=\toks19
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)
+) (C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks20
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.
+cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen148
+\Gin@req@width=\dimen149
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
+ftex.def
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count195
+\l__pdf_internal_box=\box50
+) (IDP_Arbeit_Erkennung_von_Kleiderstücken.aux)
+\openout1 = `IDP_Arbeit_Erkennung_von_Kleiderstücken.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
+kii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count196
+\scratchdimen=\dimen150
+\scratchbox=\box51
+\nofMPsegments=\count197
+\nofMParguments=\count198
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count199
+\MPscratchDim=\dimen151
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
+\everyMPtoPDFconversion=\toks22
+)
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
+base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\HK5575\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.
+cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(113.81102pt, 426.79135pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=702.78308pt
+* \oddsidemargin=41.54103pt
+* \evensidemargin=41.54103pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(IDP_Arbeit_Erkennung_von_Kleiderstücken.toc)
+\tf@toc=\write3
+\openout3 = `IDP_Arbeit_Erkennung_von_Kleiderstücken.toc'.
+
+ [1
+
+{C:/Users/HK5575/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+<Abbildung_MaschinellesLernen_1.jpg, id=7, 113.05228pt x 53.3015pt>
+File: Abbildung_MaschinellesLernen_1.jpg Graphic file (type jpg)
+<use Abbildung_MaschinellesLernen_1.jpg>
+Package pdftex.def Info: Abbildung_MaschinellesLernen_1.jpg  used on input line
+ 31.
+(pdftex.def)             Requested size: 426.86888pt x 184.95822pt.
+ [2 <./Abbildung_MaschinellesLernen_1.jpg>]
+<Abbildung_DeepLearning_1.png, id=11, 421.0932pt x 357.9774pt>
+File: Abbildung_DeepLearning_1.png Graphic file (type png)
+<use Abbildung_DeepLearning_1.png>
+Package pdftex.def Info: Abbildung_DeepLearning_1.png  used on input line 52.
+(pdftex.def)             Requested size: 284.5469pt x 184.94214pt.
+
+[3 <./Abbildung_DeepLearning_1.png>] [4]
+(IDP_Arbeit_Erkennung_von_Kleiderstücken.aux) ) 
+Here is how much of TeX's memory you used:
+ 3307 strings out of 478927
+ 51989 string characters out of 2852061
+ 363855 words of memory out of 3000000
+ 21153 multiletter control sequences out of 15000+600000
+ 404641 words of font info for 31 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,6n,66p,805b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/HK5575/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/HK5575/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on IDP_Arbeit_Erkennung_von_Kleiderstücken.pdf (4 pages, 164891
+ bytes).
+PDF statistics:
+ 29 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+

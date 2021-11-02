@@ -1,0 +1,12 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Einleitung}{2}{}%
+\contentsline {section}{\numberline {2}Motivation}{2}{}%
+\contentsline {section}{\numberline {3}Ziele}{2}{}%
+\contentsline {section}{\numberline {4}Maschinelles Lernen}{2}{}%
+\contentsline {section}{\numberline {5}Unüberwachtes Lernen}{3}{}%
+\contentsline {section}{\numberline {6}Neuronale Netze}{3}{}%
+\contentsline {section}{\numberline {7}Deep Learning}{3}{}%
+\contentsline {section}{\numberline {8}CNN}{4}{}%
+\contentsline {section}{\numberline {9}CRIPS-DM Modell}{4}{}%
+\contentsline {section}{\numberline {10}Bisherige Arbeiten}{4}{}%
+\contentsline {section}{\numberline {11}Fazit}{4}{}%
