@@ -1,1 +1,1 @@
-# Abschlussarbeit-ErkennungVonKleiderst-cken
+# Abschlussarbeit-ErkennungVonKleiderstuecken
