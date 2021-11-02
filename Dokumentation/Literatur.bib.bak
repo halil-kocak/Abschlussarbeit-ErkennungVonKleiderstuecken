@@ -1,0 +1,25 @@
+% Encoding: UTF-8
+
+@Book{Frochte2021,
+  author    = {Jörg Frochte},
+  publisher = {Hanser eBook},
+  title     = {Maschinelles Lernen : Grundlagen und Algorithmen in Python},
+  year      = {2021},
+}
+
+@Book{Chollet2018,
+  author    = {Chollet, François},
+  editor    = {Lorenzen, Knut},
+  publisher = {[Frechen] : mitp Verlags},
+  title     = {Deep Learning mit Python und Keras : Das Praxis-Handbuch vom Entwickler der Keras-Bibliothek},
+  year      = {2018},
+}
+
+@Book{Matzka2021,
+  author    = {Stephan Matzka},
+  publisher = {Springer Fachmedien Wiesbaden},
+  title     = {Künstliche Intelligenz in den Ingenieurwissenschaften},
+  year      = {2021},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
