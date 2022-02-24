@@ -157,23 +157,29 @@ In diesem Beispiel wird es wie folgt berechnet.
 	$MSE = 1 * (1 - 0.75)^{2} = 0.0625$\\
 \end{center}
 
-Somit kennt das Neuronale Netz die Abweichung der Prognose, womit es den Lernprozess starten kann. Es stellt sich die frage wie das Neuronale Netz sich optimieren bzw. verbessern lässt. \cite{Plaue2021} (S.194).  Es ist bekannt das ein Neuronales Netz mehrere Ausgaben liefern kann und für jeder dieser Ausgaben ist es möglich eine Verlustfunktion zuzuweisen. \cite{Chollet2018}. 
+Somit kennt das Neuronale Netz die Abweichung der Prognose, womit es den Lernprozess starten kann. Es stellt sich die frage wie das Neuronale Netz sich optimieren bzw. verbessern lässt. \cite{Plaue2021} (S.194).  Es ist bekannt das ein Neuronales Netz mehrere Ausgaben liefern kann und für jeder dieser Ausgaben ist es möglich eine Verlustfunktion zuzuweisen. \cite{Chollet2018}. \\
 
 \subsubsection{Verlustfunktion}
 
-Die Verlustfunktion (engl. loss-, costfunktion) wird in der Optimierung während der Trainingsphase genutzt. Hierzu gibt es Verschiedentliche Funktionen wie zum Beispiel der oben genannte mittlere quadratische Abweichung. Ein anderes Beispiel, ist die Cross-Entropy-Loss Funktion, welches für die Optimierung von klassifikatorische  modele geeignet ist. Die Cross-Entropy-Loss Funktion ist ähnlich wie die Softmax Funktion aufgebaut. Sie misst den Abstand zwischen den Prognostizierten Wert und den Wahrheitswert, um so nah wie möglich in die richtige Richtung des Ergebnisses zu bewegen. Während der Trainingsphase werden die Gewichte iterativ und entsprechend mit dem Ziel, den Cross-Entropy-Loss zu minimieren, angepasst \cite{Mahmood2018}.
+Die Verlustfunktion (engl. loss-, costfunktion) wird in der Optimierung während der Trainingsphase genutzt. Hierzu gibt es Verschiedentliche Funktionen wie zum Beispiel der oben genannte mittlere quadratische Abweichung. Ein anderes Beispiel, ist die Cross-Entropy-Loss Funktion, welches für die Optimierung von klassifikatorische  modele geeignet ist. Die Cross-Entropy-Loss Funktion ist ähnlich wie die Softmax Funktion aufgebaut. Sie misst den Abstand zwischen den Prognostizierten Wert und den Wahrheitswert, um so nah wie möglich in die richtige Richtung des Ergebnisses zu bewegen. Während der Trainingsphase werden die Gewichte iterativ und entsprechend mit dem Ziel, den Cross-Entropy-Loss zu minimieren, angepasst \cite{Mahmood2018}. Im Rahmen dieser Arbeit wird die Cross-Entropy-Loss Funktion angewendet, da es sich um eine mehrfachklassifizierung handelt.\\
 
 \subsubsection{Rückpropagierung}
 
-Die Anpassung der entsprechende Gewichte wird durch den Rückpropagierung ermöglicht.
+Die Anpassung der entsprechende Gewichte wird durch den Rückpropagierung ermöglicht. Damit die Gewichte angepasst werden können, ist es nötig das das Model Fehlerwert ein Minimum annimmt. Es ist bekannt das mit dem Gradienten der Funktion das Minimum erreichbar ist, welches die partielle Ableitung aller Vektoren darstellt. Dieser Vektor wird auch $\delta(f)$ genannt. Sie zeigt an jedem Punkt der Funktion, die Richtung der steilsten anstieg  (bzw. maximum), wobei  $-\delta(f)$ die Richtung der steilsten abstieg (bzw. minimum) der Funktion zeigt. Allgemein wird der Gradientenverfahren folgendermaßen definiert:\\
+
+\begin{center}
+	$x^{i+1} = x^{i} - \eta * \delta(f(x^{i}))$
+\end{center}
+
+, wobei $x^{0}$ der Startpunkt ist und $\eta$ die Schrittweite. Diese Verfahren lässt sich wie folgt bei den Gewichten integrieren.
+
+\begin{center}
+	$w_{neu} = w_{alt} - \eta * \delta (E(W_{alt}))$
+\end{center}
 
 
 
-
-
-
-
-
+\cite{Vogl2021} (S.337)
 
 
 
