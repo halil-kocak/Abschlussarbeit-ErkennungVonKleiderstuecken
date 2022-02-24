@@ -82,8 +82,6 @@ Zunächst ist wichtig wie die Vernetzungen und Verknüpfungen der Neuronen ausse
 	\label{fig:fig3}
 \end{figure}
 
-
-
 \subsection{Feed-Forward Propagierung}
 
 Das neuronale Netz durchläuft bei jedem Dateineintrag einmal alle Schichten. Verwendet wird dafür, dass im Abbild \ref{fig:fig2} vorgestellte Modell.
@@ -103,7 +101,11 @@ wobei $f_{l}$ die Schichten sind und für jedes L $\in$ \{ $0, 1, 2, ..., l$ \} 
 \end{center}
 
 Wobei $\overrightarrow{X}$ der Vektor für die Eingabedaten (engl. Inputdata), $w^{l}$ $\in$ $\mathbb{R}^{(D_{l} \times D_{l-1})}$ die Gewichte, welche die Verbindungen (Abbild \ref{fig:fig3}) von einem Neuron zu anderen Neuronen gewichten und $b^{l}$ der Verzerrungsvektor (engl. Bias), der Schicht l ist. $\phi$ ist die Aktivierungsfunktion der Schicht \cite{Plaue2021} (S.232 - 234).\\
-\newpage
+\\
+\subsubsection{Lern- und Testphase}
+
+Während der Lernphase wird das Model mit einer teil menge von den gesamte Daten, gefüttert. Durch dies wird das Model trainiert, daher nennt man diese Phase auch Trainingsphase. Damit keine Informationen aus der gesamten Datenmenge durchsickern, werden nur die Trainingsdaten in das Model gefüttert. Damit das Model während der Trainingsphase bewertet werden kann, benötigt es eine Mengen an Daten aus den gesamte Datensatz, die  als Validierungsmenge an das Model übertragen wird. Somit stellt sich fest das bei der Bewertung eines Modells, damit anfängt die gesamt Daten in Trainigs-, Validierungs- und Testdaten zu verteilen  \cite{Chollet2018} (K.4.2.1).\\
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=15cm,height=6cm]{FF_Netz.png}
@@ -159,13 +161,11 @@ Somit kennt das Neuronale Netz die Abweichung der Prognose, womit es den Lernpro
 
 \subsubsection{Verlustfunktion}
 
+Die Verlustfunktion (engl. loss-, costfunktion) wird in der Optimierung während der Trainingsphase genutzt. Hierzu gibt es Verschiedentliche Funktionen wie zum Beispiel der oben genannte mittlere quadratische Abweichung. Ein anderes Beispiel, ist die Cross-Entropy-Loss Funktion, welches für die Optimierung von klassifikatorische  modele geeignet ist. Die Cross-Entropy-Loss Funktion ist ähnlich wie die Softmax Funktion aufgebaut. Sie misst den Abstand zwischen den Prognostizierten Wert und den Wahrheitswert, um so nah wie möglich in die richtige Richtung des Ergebnisses zu bewegen. Während der Trainingsphase werden die Gewichte iterativ und entsprechend mit dem Ziel, den Cross-Entropy-Loss zu minimieren, angepasst \cite{Mahmood2018}.
 
+\subsubsection{Rückpropagierung}
 
-
-
-
-
-
+Die Anpassung der entsprechende Gewichte wird durch den Rückpropagierung ermöglicht.
 
 
 
