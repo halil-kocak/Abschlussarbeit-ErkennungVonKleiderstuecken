@@ -177,8 +177,13 @@ Die Anpassung der entsprechende Gewichte wird durch den Rückpropagierung ermög
 	$w_{neu} = w_{alt} - \eta * \delta (E(W_{alt}))$
 \end{center}
 	
-	
-	
+, wobei w das Gewicht darstellt und $\eta$ die Schrittweite.\\
+\\
+Somit kann das Neuronale Netz seine Gewichte anpassen, womit es sich optimieren kann. Der Ablauf zu Anpassung der Gewicht wird folgendermaßen definiert.
+
+
+TODO:
+ABLAUF DES RÜCKPROPAGIERENS MUSS DEFINIERT WERDEN !
 	
 	
 	
@@ -224,18 +229,17 @@ Bei einem CNN, im Deutschen "gefaltetes Neuronales Netzwerk", handelt es sich vo
 In Abbildung \ref{fig:fig5} sind mehrere Schichten (Layer) zu sehen. Dabei ist die Eingabeschicht (Inputlayer) und die Ausgabeschicht (Outputlayer) bekannt. Wie im vorherigen Abschnitt auch definiert, hat ein CNN mehrere verborgene Schichten, darunter den \textbf{Convolutional Layer}, der einzelne Merkmale aus den Eingabedaten ortsunabhängig erkennt und daraufhin diese extrahiert. Diese Merkmale könnten bei einer Bildverarbeitung den Kanten, Linienformen und Farbtupfer entsprechen, die eine Struktur darstellen. Diese Merkmale werden in der \textbf{Pooling-Schicht}, auch als Subsampling bekannt, bearbeitet, indem die Auflösung der Merkmale reduziert und verdichtet wird. Somit werden überflüssige Informationen verworfen, wodurch die Datenmenge reduziert wird. Dadurch wird die Berechnungsgeschwindigkeit erhöht. Diese zwei Schichten können so oft wie möglich verwendet werden, da sie nur Merkmale aus den Bilder extrahieren und optimierend zu Verfügung stehen. Die eigentliche Klassifikation entsteht durch den \textbf{Fully-Connected Layer}, im Deutschen "vollständig verknüpfte Schicht", der sich der wiederholten Abfolge der Convolutional- und Pooling-Schichten anschließt, indem alle Merkmale der vorgelagerten Schichten mit jedem Ausgabemerkmal verknüpft sind. Somit werden mögliche Kombinationen aus den Strukturen entworfen, die komplexere Strukturen identifizieren lassen. Wichtig ist hierbei, dass die Anzahl an Neuronen in der vollständig vernetzten Schicht abhängig von den Klassen oder Objekten sind \cite{Luber2019}. 
 	
 \section{Evalutionstechniken}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+TODO:
+Genauigkeit definieren und wie dies zustanden kommt? Was stellt es dar?
+
+
+
+
+
+
+
+
 \newpage
 \chapter{CRISP-DM Modell}
 	
