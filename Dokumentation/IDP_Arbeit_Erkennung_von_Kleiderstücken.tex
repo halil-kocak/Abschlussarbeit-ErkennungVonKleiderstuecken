@@ -409,13 +409,23 @@ Im gesamten kann das Model 53,790 Parameter trainieren. Bevor das Training gesta
 	\label{fig:fig14}
 \end{figure}
 
-Die Ergebnisse zeigen, das die erste Epoche eine Präzision von $86,56\%$ hat und die sich bei den nächste Epoche erhöhen. Damit hat das Model am ende eine Präzision während dem Training von $91\%$. Sichtbar ist die Differenz zwischen accuracy ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accurac$, welches die Genauigkeit der Validierungsdaten anzeigt wird hier in Betracht gezogen, da diese zu Validierung des Models erstellt worden ist und komplett abgekapselt von den Trainingsdaten übergeben wurde. Der nächste Schritt zu Optimierung des Modell, sollte die Anpassung sein, welches den Abstand der Genauigkeiten verringert. Es ist auch ersichtlich, dass die loss-Werte gegen null näher. Dies Zeigt, dass das Modell sich verbessert bzw. optimiert.
+Die Ergebnisse zeigen, das die erste Epoche eine Präzision von $86,56\%$ hat und die sich bei den nächste Epoche erhöhen. Damit hat das Model am ende eine Präzision während dem Training von $91\%$. Sichtbar ist die Differenz zwischen accuracy ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accurac$, welches die Genauigkeit der Validierungsdaten anzeigt wird hier in Betracht gezogen, da diese zu Validierung des Models erstellt worden ist und komplett abgekapselt von den Trainingsdaten übergeben wurde. Der nächste Schritt zu Optimierung des Modell, sollte die Anpassung sein, welches den Abstand der Genauigkeiten verringert. Es ist auch ersichtlich, dass die loss-Werte gegen null näher. Dies Zeigt, dass das Modell sich verbessert bzw. optimiert. Die Leistung können wir auch anhand eines Graphen bilden indem, die Ergebnisse in Epoche aufgeteilt und  geplotten werden, dies wird folgendermaßen Dargestellt.\\
+\\
+\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=15cm,height=9cm]		{ExperimentModelBewertungsgraf_1.png}
+	\caption{ Experiment 1: Bewertung Trainingsphase anhand Graphen \cite{HK22}(Experiment 1)}
+	\label{fig:fig15}
+\end{figure}
+
+In diesem Abbild wird die Verbesserung des Model durchaus ersichtlicher. Es ist klar deutlich das sich die loss-Werte gegen null näher, währenddessen die Genauigkeit sich erhöht. Somit wird das Model immer weiter optimiert bis zur letzten Epoche.
 
 \subsection{Experiment 2}
 
-In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter verbessert. Das Ziel ist zunächst die reduzierung der Differenz von $val\_accuracy$ und accuracy, damit das Model genauere Bewertung liefern kann.
+In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter verbessert. Das Ziel ist zunächst die reduzierung der Differenz von $val\_accuracy$ und accuracy, damit das Model genauere Bewertung liefern kann. Dafür wird die Dropout Schicht benutzt, welches die Daten eliminiert, die ein Ausreißer bilden.
 
-
+ 
 
 \cleardoubleoddpage
 	
