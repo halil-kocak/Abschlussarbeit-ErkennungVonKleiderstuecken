@@ -391,16 +391,16 @@ Der Conv2D und MaxPooling2D Layer gehören, wie in Kapitel 2 beschrieben, zu dem
 	$f(x) = max(0,x)$, wobei x der Eingangswert ist.
 \end{center}
 
-Sie beschreibt seinen Argument als Positivteil. Für die Ausgabeschicht wird die Aktivierungsfunktion softmax eingestellt. Damit wird das erste Modell finalisiert und kann trainiert werden.
+... . Für die Ausgabeschicht wird die Aktivierungsfunktion softmax eingestellt. Damit wird das erste Modell finalisiert und kann trainiert werden.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=15cm,height=10.5cm]		{ExperimentModelAufbau_1.png}
-	\caption{ Experiment 1: Modellaufbau \cite{HK22} (Experiment 1)}
+	\caption{  Modellaufbau \cite{HK22} (Experiment 1)}
 	\label{fig:fig13}
 \end{figure}
 
-Im gesamten kann das Model 53,790 Parameter trainieren. Bevor das Training gestartet werden kann, müssen noch einige Variablen definiert werden. Zunächst braucht das Model ein optimizer der ein tensorflow Objekt darstellt. Dieses Objekt beschreibt den Optimierung Vorgang für das Modell. In diesem Fall wird der optimizer als "tf.keras.optimizers.Adam()" definiert, der stochastisches Gradientenabstiegsverfahren beschreibt. Der nächste Parameter definiert die Verlustfunktion des Modells, welches wir als Cross-Entropy-Loss Funktion angeben. Als Bewertungsmetrik wird dem Model die Genaugigkeit (engl. accuracy) ausgewählt, die Prozentual angibt wie gut ein Model prognostiziert. Zu letzte werden Epochen anzahl und Batch größen angegeben. 
+Insgesamt kann das Model 53,790 Parameter trainieren. Bevor das Training gestartet werden kann, müssen noch einige Variablen definiert werden. Zunächst braucht das Modell ein optimizer der ein tensorflow Objekt darstellt. Dieses Objekt beschreibt den Optimierung Vorgang für das Modell. In diesem Fall wird der optimizer als "tf.keras.optimizers.Adam()" definiert, der den stochastische Gradientenabstiegsverfahren beschreibt. Der nächste Parameter definiert die Verlustfunktion des Modells, welches wir als Cross-Entropy-Loss Funktion angeben. Als Bewertungsmetrik wird dem Modell die Genauigkeit (engl. accuracy) ausgewählt, die Prozentual angibt wie gut ein Modell prognostiziert. Zu letzte werden Epochen-Anzahl und Batch-Größen angegeben. 
 
 \subsubsection{Trainingsphase}
 
@@ -408,26 +408,26 @@ Im gesamten kann das Model 53,790 Parameter trainieren. Bevor das Training gesta
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm,height=9cm]		{ExperimentModelTrainingsphase_1.png}
-	\caption{ Experiment 1: Bewertung Trainingsphase \cite{HK22}(Experiment 1)}
+	\includegraphics[width=14.5cm,height=10cm]		{ExperimentModelTrainingsphase_1.png}
+	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 1)}
 	\label{fig:fig14}
 \end{figure}
 
-Die Ergebnisse zeigen, das die erste Epoche eine Präzision von $86,56\%$ hat und die sich bei den nächste Epoche erhöhen. Damit hat das Model am ende eine Präzision während dem Training von $91\%$. Sichtbar ist die Differenz zwischen accuracy ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accurac$, welches die Genauigkeit der Validierungsdaten anzeigt wird hier in Betracht gezogen, da diese zu Validierung des Models erstellt worden ist und komplett abgekapselt von den Trainingsdaten übergeben wurde. Der nächste Schritt zu Optimierung des Modell, sollte die Anpassung sein, welches den Abstand der Genauigkeiten verringert. Es ist auch ersichtlich, dass die loss-Werte gegen null näher. Dies Zeigt, dass das Modell sich verbessert bzw. optimiert. Die Leistung können wir auch anhand eines Graphen bilden indem, die Ergebnisse in Epoche aufgeteilt und  geplotten werden, dies wird folgendermaßen Dargestellt.\\
+Die Ergebnisse zeigen, das die erste Epoche eine Genauigkeit von $86,56\%$ hat und die sich bei den nächste Epoche erhöhen. Damit hat das Model am ende eine Genauigkeit, während dem Training von $91\%$. Sichtbar ist die Differenz zwischen accuracy ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accurac$, welches die Genauigkeit der Validierungsdaten anzeigt wird hier in Betracht gezogen, da diese zu Validierung des Modells erstellt worden ist und komplett abgekapselt von den Trainingsdaten übergeben wurde. Der nächste Schritt zu Optimierung des Modell, sollte die Anpassung sein, welches den Abstand der Genauigkeiten verringert. Es ist auch ersichtlich, dass die loss-Werte gegen null näher. Dies Zeigt, dass das Modell sich verbessert bzw. optimiert. Die Leistung können wir auch anhand eines Graphen bilden indem, die Ergebnisse in Epoche aufgeteilt und  geplotten werden, dies wird folgendermaßen Dargestellt.\\
 \\
 \\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=15cm,height=9cm]		{ExperimentModelBewertungsgraf_1.png}
-	\caption{ Experiment 1: Bewertung Trainingsphase anhand Graphen \cite{HK22}(Experiment 1)}
+	\caption{ Bewertung Trainingsphase anhand Graphen \cite{HK22}(Experiment 1)}
 	\label{fig:fig15}
 \end{figure}
 
-In diesem Abbild wird die Verbesserung des Model durchaus ersichtlicher. Es ist klar deutlich das sich die loss-Werte gegen null näher, währenddessen die Genauigkeit sich erhöht. Somit wird das Model immer weiter optimiert bis zur letzten Epoche.
+In diesem Abbild wird die Verbesserung des Modell durchaus ersichtlicher. Es ist klar deutlich das sich die loss-Werte gegen null näher, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche.
 
 \subsection{Experiment 2}
 
-In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter verbessert. Das Ziel ist zunächst die reduzierung der Differenz von $val\_accuracy$ und accuracy, damit das Model genauere Bewertung liefern kann. Dafür wird die Dropout Schicht benutzt, welches die Daten eliminiert, die ein Ausreißer bilden.
+In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter verbessert. Das Ziel ist zunächst die reduzierung der Differenz von $val\_accuracy$ und accuracy, damit das Modell genauere Bewertung liefern kann. Dafür wird die Dropout Schicht benutzt, welches die Daten eliminiert, die ein Ausreißer bilden.
 
  
 
