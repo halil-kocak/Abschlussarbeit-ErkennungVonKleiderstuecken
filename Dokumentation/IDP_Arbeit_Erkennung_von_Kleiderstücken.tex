@@ -32,9 +32,11 @@
 \newpage
 
 \chapter{Einleitung}
-Es war schon immer die Frage ob Maschinen jemals selbst, anhand vorhandenen Informationen, Entscheidungen treffen oder wie ein Mensch Regeln aus bestimmten Prozessen extrahieren können \cite{Chollet2018}(K.1.1.1). Diese Fragestellung ist vor allem in der heutigen Zeit, in der das Thema Digitalisierung voran getrieben wird, von großer Bedeutung. Auch setzen Unternehmen immer mehr auf Techniken aus dem Bereich des Maschinellen Lernens (ML) und verwenden diese um ihre Prozesse zu digitalisieren und somit zu optimieren. Es existieren verschiedene ML-Techniken, wie zum Beispiel die Klassifikation, Regression oder Deep Learning. Letzteres steht im Mittelpunkt vieler Anwendungsszenarien. Anwendungsfelder für Deep Learning sind vor allem, Bild- und Videoanalyse, sowie die Sprachverarbeitung. Diese werden in verschiedenen Branchen, wie zum Beispiel der Medizin, der Automobilindustrie oder im Kundendienst eingesetzt \cite{FraunhoferGesellschaft2018}. Auch im Bereich Online-Retail finden ML-Techniken einen relevanten Einsatz. Im Rahmen dieser Bachelor-Arbeit liegt der Fokus vor allem in diesem Bereich und wie die Bildanalyse hier unterstützten kann. Diese Problemstellung wird in einem späteren Abschnitt der Arbeit näher definiert.  \\
+Es war schon immer die Frage ob Maschinen jemals selbst, anhand vorhandenen Informationen, Entscheidungen treffen oder wie ein Mensch Regeln aus bestimmten Prozessen extrahieren können \cite{Chollet2018}(K.1.1.1). Diese Fragestellung ist vor allem in der heutigen Zeit, in der das Thema Digitalisierung voran getrieben wird, von großer Bedeutung. Auch setzen Unternehmen immer mehr auf Techniken aus dem Bereich des Maschinellen Lernens (ML) und verwenden diese um ihre Prozesse zu digitalisieren und somit zu optimieren. Es existieren verschiedene ML-Techniken, wie zum Beispiel die Klassifikation, Regression oder Deep Learning. Letzteres steht im Mittelpunkt vieler Anwendungsszenarien. Anwendungsfelder für Deep Learning sind vor allem, Bild- und Videoanalyse, sowie die Sprachverarbeitung. Diese werden in verschiedenen Branchen, wie zum Beispiel der Medizin, der Automobilindustrie oder im Kundendienst eingesetzt \cite{FraunhoferGesellschaft2018}. Auch im Bereich Online-Retail finden ML-Techniken einen relevanten Einsatz. Im Rahmen dieser Bachelor-Arbeit liegt der Fokus vor allem in diesem Bereich und wie die Bildanalyse hier unterstützen kann. Im Bereich Online-Retail können zum Beispiel von Kunden bestellte Artikel zurück gesendet werden. Diese Artikel müssen dann wieder richtig gekennzeichnet und neu einsortiert werden. Dieser manueller Prozess kann durch den Einsatz von einer Bildanalyse bzw. Bilderkennung optimiert und automatisiert werden. Dadurch können zum Beispiel wieder eingegangene Waren automatisch erkannt, entsprechend gelabelt und für den erneuten Verkauf vorbereitet werden. Diese Problemstellung wird in einem späteren Abschnitt der Arbeit, im Rahmen des Business Understanding des CRISP-DM Standards (Cross Industry Standard Process for Data Mining), näher definiert.\\
 	\\
-Diese Bachelor-Arbeit beinhaltet die Erkennung von Objekten auf Bildern durch den Einsatz von Künstlicher Intelligenz. Dabei wird die Disziplin Deep Learning unter Einsatz von Convutional Neural Network verwendet. Um diese zu verstehen werden allgemeine Informationen zur Künstlichen Intelligenz und dessen Bestandteile und Algorithmen benötigt. Zu Beginn ist es wichtig zu wissen, welche Probleme die Künstliche Intelligenz lösen kann und welche Bestandteile für diese Arbeit benötigt werden. In diesem Zusammenhang wird zum Beispiel das Verfahren Convutional Neural Network behandelt, welches zu den Deep Learning Methoden gehört und eine Teilmenge der Maschinellen Lernalgorithmen bildet. Außerdem wird im Rahmen dieser Arbeit das CRIPS-DM Modell vorgestellt und verwendet, welches als Standard für Data Mining Modelle definiert wurde.
+Diese Bachelor-Arbeit beinhaltet die Erkennung von Objekten auf Bildern durch den Einsatz von Künstlicher Intelligenz. Dabei wird die Disziplin Deep Learning unter Einsatz von Convutional Neural Network verwendet. Um diese zu verstehen werden zuerst allgemeine Informationen zur Künstlichen Intelligenz und dessen Bestandteile und Algorithmen benötigt. Zu Beginn ist es wichtig zu wissen, welche Probleme die Künstliche Intelligenz lösen kann und welche Bestandteile für diese Arbeit benötigt werden. In diesem Zusammenhang wird das Verfahren Convutional Neural Network behandelt, welches zu den Deep Learning Methoden gehört und eine Teilmenge der Maschinellen Lernalgorithmen bildet. Außerdem wird im Rahmen dieser Arbeit das CRIPS-DM Modell vorgestellt und verwendet, welches als Standard für Data Mining Modelle definiert wurde.\\
+\\
+Der Aufbau der Arbeit beginnt mit der Einführung in das Maschinelle Lernen und allen wichtigen Komponenten, wie zum Beispiel die in der Arbeit eingesetzten Verfahren und wichtige Evaluationsmetriken für die Bewertung der Experimente. Danach erfolgt ein Einblick in das CRISP-DM Modell, welches für das bearbeitete Data Mining Experiment als Vorgehensmuster eingesetzt wird. Im Anschluss folgen die Experimente. In diesem Abschnitt wird das CRISP-DM Modell angewendet und die einzelnen Phasen des Modells bearbeitet. Hier wird unter anderem die Problemstellung detailliert erläutert, der verwendete Datensatz beschrieben und die implementierten Modelle erklärt und evaluiert. Als letztes folgt eine Zusammenfassung der gesamten Arbeit und ein möglicher Ausblick für die Fortsetzung dessen.
 	
 \newpage
 \chapter{Maschinelles Lernen}
@@ -62,8 +64,40 @@ Das überwachte Lernen gehört zu den Lernverfahren des maschinellen Lernens und
 	
 In diesem Abschnitt wird das Ziel der Klassifizierung beschrieben. Dabei handelt es sich um die richtig vorhergesagten Klassen durch gegebene Datenpunkte. Datensätze die zu einer Klasse gehören, nennt man klassifizierte Beispiele. Diese Beispiele werden je nach Verwendung für das Trainieren, Validieren oder das Testen der Künstliche Intelligenz genutzt. Während des Trainingsvorganges erkennt ein Modell vorhandene Muster aus den Daten und kann daraus später neue Daten klassifizieren. Der Klassifizierungsvorgang ist in zwei Schritten unterteilt. In dem ersten Schritt findet, wie bereits erwähnt, die Trainingsphase statt. Durch vorhandene Beobachtungen, die bereits einer Klasse zugeordnet sind, lernt der Klassifizierer und erkennt Muster. Damit die Leistung des Trainingsvorganges bewerten werden kann, findet parallel eine Validierung statt. Dafür werden dann die Validierungsdaten eingesetzt. Im zweiten Schritt findet die Testphase statt, in die Beobachtungen einfließen, bei denen es sich um nicht klassifizierte Beispiele handelt. Diesen bisher unklassifizierten Beobachtungen werden in diesem Schritt die Klassen zugeordnet. Hier findet also die eigentliche Klassifizierung statt. Sind nur zwei Klassen für die zuordnung vorhanden, handelt es sich um eine binäre Klassifizierung. Sind mehr als zwei Klassen vorhanden, ist das Klassifizierungsproblem eine Multi-Class Klassifizierung. Im Rahmen dieser Arbeit wird eine Multi-Class Klassifizierung (Mehrklassen Klassifizierung) behandelt \cite{Frochte2021} (S.21) \cite{Asiri2018} \cite{Schoenbrodt2019} (K.2).
 	
-\section{Überanpassung}
-TODO: Überanpassung definieren!
+\section{Überanpassung (Overfitting)}
+Im Rahmen des maschinellen Lernens kann es durchaus passieren, dass sich ein Modell während seiner Lern- bzw. Trainingsphase zu sehr an die gegebenen Trainingsdaten orientiert. In diesem Fall spricht man von einer Überanpassung, auch bekannt als Overfitting. Der zweite Fall, der auftreten kann ist, dass ein Modell zu wenig Zusammenhänge erkennt bzw. wiedergibt. Hier spricht man von Underfitting. In dieser Arbeit wird das Problem des Overfittings näher betrachtet, da dies auch im Rahmen der Experimente von Bedeutung sein wird.\\
+
+Bei der Darstellung komplexer Zusammenhänge, kann es von Vorteil sein Neuronale Netze für die Modellierung zu verwenden. Diese haben in der Regel sehr viele freie Parameter, die auch bekannt sind unter dem Namen Gewichte. Der große vorhandene Parameterraum kann aber auch Gefahren mit sich bringen, unter anderem das Problem des Overfittings. Neuronale Netze lernen während der Trainingsphase nicht nur die Trainingsdaten perfekt abzubilden sondern lernen auch Schwankungen in den Daten, Rauschen oder Fehler auswendig. Kommen dann neue Daten ins Spiel, aus denen Prognosen abgeleitet werden sollen, kann es, aufgrund der gespeicherten störenden Einflüsse, zu Verschlechterungen in den Prognosen kommen. Damit findet eine Überanpassung des Modells an die Trainingsdaten statt. Dieses Problem kann auch bei einer polynomialen Regression auftreten. In der nächsten Abbildung sind drei Modellarten in Bezug auf eine Regression zu sehen.\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=15cm,height=5cm]{BeispielÜberanpassungdesModells.png}
+	\caption{Darstellung des Overfitting \cite{Vogl2021} (S.341)}
+	\label{fig:fig22}
+\end{figure}
+
+Die Bilder stammen aus einem linearen Prozess und beinhalten Fehler. Das linke Bild (Overfitting) stellt dar, dass das Modell auch jede Abweichung perfekt erkennt. Das Bild rechts zeigt, dass das Modell die Zusammenhänge zwischen den Inputdaten und Zielvariablen überhaupt nicht erkennt. In dem mittleren Bild ist ein Modell zu sehen, das sich gut auf neue Daten übertragen lässt \cite{Vogl2021} (S.341).\\
+
+Die einfachste Lösung des Problems ist, dass die vorhandenen Daten in drei Datensätze aufgeteilt werden. Somit kann man beobachten, wie sich das Modell auf unbekannte Daten übertragen lässt und konzentriert sich nicht nur auf das Lernverhalten des Modells. Der erste Datensatz wird dann zum Trainieren, der zweite Datensatz für die Validierung und der letzte Datensatz für das Testen verwendet. Diese Aufteilung wurde bereits näher im vorherigen Abschnitt erläutert. Nach der Aufteilung der Daten wird der Fehler auf den Trainingsdaten zusammen mit dem Fehler auf den Validierungsdaten beobachtet. Die Trainingsphase bzw. das Lernen wird gestoppt sobald der Validierungsfehler das Minimum erreicht. Dieser Vorgang wird Early Stopping genannt und wird in der nächsten Abbildung veranschaulicht.\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=10cm,height=6cm]{earlyStopping.png}
+	\caption{Early Stopping \cite{Vogl2021} (S.342)}
+	\label{fig:fig23}
+\end{figure}
+
+Eine weitere Möglichkeit ist die Verwendung eines Dropout-Layers. Diese Schicht veranlasst das Herausfallen von Neuronen in einem neuronalen Netz. Die Auswahl der eliminierten Neuronen passiert zufällig. Dabei werden auch die mit dem Neuron verbundenen eingehende und ausgehende Verbindungen vorübergehend entfernt. Dieser Vorgang ist in nachfolgender Abbildung dargestellt \cite{Srivastava2014}
+\newpage
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=15cm,height=9cm]{
+		DropoutNeuronalNetModel.png}
+	\caption{Neuronales Netz mit Dropout-Layer \cite{Srivastava2014}}
+	\label{fig:fig24}
+\end{figure}
+
+Dabei ist auf dem linken Bild ein Neuronales Netz mit zwei Hidden Schichten zu sehen. Rechts ist ein Beispiel abgebildet, wie ein Netz mit eliminierten Neuronen durch die Anwendung des Dropout-Layers aussehen kann. Auch die entfernten Verbindungen werden hier deutlich. Neuronen, die während der Trainingsphase nicht entfernt werden, werden hochskaliert, damit die Summe über alle Eingaben unverändert bleibt. Im Rahmen der Experimente wird, um Overfitting zu vermeiden, ein Dropout-Layer eingesetzt \cite{tensorflow2022}.
 
 \section{Künstliche Neuronale Netze}
 
@@ -108,11 +142,9 @@ wobei $f_{l}$ die Schichten sind und für jedes L $\in$ \{ $0, 1, 2, ..., l$ \} 
 	$f: \mathbb{R}^{D_{L-1}} \to \mathbb{R}^{D_{0}}$ , $f_{l}(\overrightarrow{X}) = \phi (w^{l} * \overrightarrow{X} + b^{l} ) $, beschreibt.
 \end{center}
 
-Wobei $\overrightarrow{X}$ der Vektor für die Eingabedaten (engl. Inputdata), $w^{l}$ $\in$ $\mathbb{R}^{(D_{l} \times D_{l-1})}$ die Gewichte, welche die Verbindungen (Abbild \ref{fig:fig3}) von einem Neuron zu anderen Neuronen gewichten und $b^{l}$ der Verzerrungsvektor (engl. Bias), der Schicht l ist. $\phi$ ist die Aktivierungsfunktion der Schicht \cite{Plaue2021} (S.232 - 234).
+Wobei $\overrightarrow{X}$ der Vektor für die Eingabedaten (engl. Inputdata), $w^{l}$ $\in$ $\mathbb{R}^{(D_{l} \times D_{l-1})}$ die Gewichte, welche die Verbindungen (Abbild \ref{fig:fig3}) von einem Neuron zu anderen Neuronen gewichten und $b^{l}$ der Verzerrungsvektor (engl. Bias) der Schicht $l$ ist. Des weiteren ist $\phi$ die Aktivierungsfunktion der Schicht $l$ \cite{Plaue2021} (S.232 - 234).
 	
-\subsubsection{Lern- und Testphase}
 
-Während der Lernphase wird das Model mit einer teil menge von den gesamte Daten, gefüttert. Durch dies wird das Model trainiert, daher nennt man diese Phase auch Trainingsphase. Damit keine Informationen aus der gesamten Datenmenge durchsickern, werden nur die Trainingsdaten in das Model gefüttert. Damit das Model während der Trainingsphase bewertet werden kann, benötigt es eine Mengen an Daten aus den gesamte Datensatz, die  als Validierungsmenge an das Model übertragen wird. Somit stellt sich fest das bei der Bewertung eines Modells, damit anfängt die gesamt Daten in Trainigs-, Validierungs- und Testdaten zu verteilen  \cite{Chollet2018} (K.4.2.1).\\
 	
 \begin{figure}[h!]
 	\centering
@@ -121,42 +153,42 @@ Während der Lernphase wird das Model mit einer teil menge von den gesamte Daten
 	\label{fig:fig10}
 \end{figure}
 
-Die Gewichte werden zunächst zufällig vergeben und mit dem Lernverfahren, das während der Rückpropagierung stattfindet, optimiert. Damit das Neuronale Netz Abweichungen erkennen kann, werden Bias verwendet, die diese Abweichung darstellten. Bevor mit der   Trainingsphase begonnen wird, sollten folgende Elemente festgelegt werden. Zunächst ist die Verlustfunktion zu definieren, welche die Leistung der Trainingsdaten beschreibt. Durch die Verlustfunktion kann das Neuronale Netz die Gewichte optimieren. Als nächstes sollte die Menge an Trainingsdaten und Testdaten festgelegt werden \cite{Chollet2018} (K.2.1 Listing 2.2). An dieser Stelle werden beispielhaft die Schritte der Feed-Forward Propagation in Abbild \ref{fig:fig10} betrachtet. Zunächst wird die Eingabeschicht mit den Eingabedaten gefüttert, wobei diese normalisierte Werte beinhalten sollten. Die zufällig generierten Gewichte stellen die Gewichtungen für die Neuronen der nächsten Schicht dar. Nun wird das, in Abbild \ref{fig:fig10} definierte, Model für jedes Neuron aus der nächsten Schicht angewendet. Somit hat das erste Neuron aus der Schicht l=1  folgende Berechnung. 
+Die Gewichte werden zunächst zufällig vergeben und mit dem Lernverfahren, das während der Rückpropagierung stattfindet, optimiert. Damit das Neuronale Netz Abweichungen erkennen kann, werden Bias verwendet, die diese Abweichung darstellen. Bevor mit der   Trainingsphase begonnen wird, sollten folgende Elemente festgelegt werden. Zunächst ist die Verlustfunktion zu definieren, welche die Leistung der Trainingsdaten beschreibt. Durch die Verlustfunktion kann das Neuronale Netz die Gewichte optimieren. Als nächstes sollte die Menge an Trainingsdaten und Testdaten festgelegt werden \cite{Chollet2018} (K.2.1 Listing 2.2). An dieser Stelle werden beispielhaft die Schritte der Feed-Forward Propagation in Abbild \ref{fig:fig10} betrachtet. Zunächst wird die Eingabeschicht mit den Eingabedaten gefüttert, wobei diese normalisierte Werte beinhalten sollten. Die zufällig generierten Gewichte stellen die Gewichtungen für die Neuronen der nächsten Schicht dar. Nun wird das, in Abbild \ref{fig:fig10} definierte, Modell für jedes Neuron aus der nächsten Schicht angewendet. Somit hat das erste Neuron aus der Schicht $l=1$  folgende Berechnung. 
 	
 \begin{center}
 	$f_{11} =  \phi [(x_{1}* w_{11}) +( x_{2}* w_{21}) + (x_{3}* w_{31})]  + b^{1}$
 \end{center}
 
-allgemein lässt sich die Feed-Forward Propagierung wie folgt beschreiben:
+Allgemein lässt sich die Feed-Forward Propagierung wie folgt beschreiben:
 
 \begin{center}
 	$f = \sum^{n}_{n=0} [ \phi (x_{n} * w_{nj} + b^{j})]$
 \end{center}
 
-, wobei n die Anzahl an Neuronen im vorherigen Schicht sind und j die Anzahl an Neuronen im aktuellen Schicht. Somit kann das Neuronale Netz mit den bestmöglichen Gewichten Prognosen anhand Eingabedaten, liefern. Die Optimierung der Gewichte wird im Abschnitt \ref{chapter:Lernverfahren} Lernverfahren näher beschrieben.\\
+, wobei $n$ die Anzahl an Neuronen in der vorherigen Schicht sind und $j$ die Anzahl an Neuronen in der aktuellen Schicht. Somit kann das Neuronale Netz mit den bestmöglichen Gewichten Prognosen, anhand der Eingabedaten, liefern. Die Optimierung der Gewichte werden im Abschnitt \ref{chapter:Lernverfahren} Lernverfahren näher beschrieben.\\
 	
 \subsection{Eingabedaten}
-Die Eingabedaten $x_{1}, ..., x_{n}$ stellen die Merkmale (oder Attribute) dar, welches die Eigenschaften beinhalten, aus denen das Neuronale Netz lernen kann. Zu beachten sind dabei die Datentypen der Eingabedaten und die Normierung dieser Daten. Dabei gibt es unterschiedliche Datentypen. Im Rahmen dieser Arbeit ist der Fokus auf Vektor- und Bilddaten gerichtet \cite{Chollet2018} (K.2.2.8). 
+Die Eingabedaten $x_{1}, ..., x_{n}$ stellen die Merkmale (oder Attribute) dar, welche die Eigenschaften beinhalten, aus denen das Neuronale Netz lernen kann. Zu beachten sind dabei die Datentypen der Eingabedaten und die Normierung dieser Daten. Dabei gibt es unterschiedliche Datentypen. Im Rahmen dieser Arbeit ist der Fokus auf Vektor- und Bilddaten gerichtet \cite{Chollet2018} (K.2.2.8). 
 
 \subsubsection{Vektordaten}
 
-Dieser Datentyp wird mathematisch als $ \overrightarrow{x} \in \mathbb{R}^{2}$ definiert und beinhaltet in der ersten Achse, die Datenwerte, wie zum Beispiel $x_{1}$. Die zweite Achse ist die Merkmalsachse, welche die Merkmale darstellt die zur Verfügung stehen  \cite{Chollet2018} (K.2.2.9).
+Die Vektordaten werden mathematisch als $ \overrightarrow{x} \in \mathbb{R}^{2}$ definiert und beinhalten in der ersten Achse, die Datenwerte, wie zum Beispiel $x_{1}$. Die zweite Achse ist die Merkmalsachse, welche die Merkmale darstellt die zur Verfügung stehen  \cite{Chollet2018} (K.2.2.9).
 
 \subsubsection{Bilddaten}
 
-Bei den Bilddaten handelt es sich generell um drei dimensionale Matrizen, jedoch unterscheiden wir die Graustufenbilder, für diese zwei Dimensionale Matrizen ausreichen. Hier bekommt jeweils eine Achse die Höhe, die zweite Achse die Breite und die letzte Achse die Farbtiefe des Bildes. Da die Graustufenbilder nur einen Farbkanal beinhalten, ist die zwei dimensionale Matrix ausreichend \cite{Chollet2018} (K.2.2.11).
+Bei den Bilddaten handelt es sich generell um drei dimensionale Matrizen, jedoch unterscheiden wir die Graustufenbilder, für die zwei dimensionale Matrizen ausreichen. Hier bekommt jeweils eine Achse die Höhe, die zweite Achse die Breite und die letzte Achse die Farbtiefe des Bildes. Da die Graustufenbilder nur einen Farbkanal beinhalten, ist die zwei dimensionale Matrix ausreichend \cite{Chollet2018} (K.2.2.11).
 
 \subsection{Lernverfahren}\label{chapter:Lernverfahren}
-Bisher wurde der Durchlauf eines Neuronalen Netzes definiert, jedoch nicht wie es aus den Daten lernen kann. Damit das Neuronale Netz lernen kann, muss er auch Fehler erkennen können. Abhängig von der Verlustfunktion ist auch die Aktivierungsfunktion, die für die Ausgabeschicht ausgewählt wurde. Je nach Größe oder Art der Ziel-Klassen wird eine Aktivierungsfunktion ausgewählt. Ein Beispiel dazu ist die Mehrfachklassifizierung, bei der die Aktivierungsfunktion "Softmax" ausgewählt wird. Die Softmax-funktion auch als Softmax-Regression bekannt, stellt anhand der Eingabewerte eine Wahrscheinlichkeitsverteilung zu Verfügung, deren Summe 1 ergibt. Somit werden den Ziel-Klassen werte vergeben die zwischen 0 und 1 sind \cite{Mahmood2018}. Durch die Vereinheitlichung der Neuronen mit der Aktivierungsfunktion, können Fehlerwerte kalkuliert werden. Dies Geschieht folgendermaßen. Es wird angenommen, dass die Ausgabeschicht den Wert $x_{0} = 0.75$ beinhaltet, wobei der echte erwartete Wert y = 1 ist. Durch die Anwendung  eines der Verlustfunktionen, stellt das Neuronale Netz fest, wie groß die Abweichung des Ergebnisses von dem tatsächlichen Ergebnis ist. Hierzu werden unterschiedliche Verfahren genutzt  \cite{Matzka2021}(S.124-126). Eines dieser Verfahren ist die mittlere quadratische Abweichung (engl. mean squared error, MSE).
+Bisher wurde der Durchlauf eines Neuronalen Netzes definiert, jedoch nicht wie es aus den Daten lernen kann. Damit das Neuronale Netz lernen kann, muss er auch Fehler erkennen können. Je nach Größe oder Art der Ziel-Klassen wird eine Aktivierungsfunktion ausgewählt. Ein Beispiel dazu ist die Mehrklassen Klassifizierung, bei der die Aktivierungsfunktion Softmax ausgewählt wird. Die Softmax-Funktion, die auch als Softmax-Regression bekannt ist, stellt anhand der Eingabewerte eine Wahrscheinlichkeitsverteilung zur Verfügung, deren Summe 1 ergibt. Somit werden den Ziel-Klassen Werte vergeben die zwischen 0 und 1 liegen \cite{Mahmood2018}. Durch die Vereinheitlichung der Neuronen mit der Aktivierungsfunktion, können Fehlerwerte kalkuliert werden. Dies geschieht durch die Annahme, dass die Ausgabeschicht den Wert $x_{0} = 0.75$ beinhaltet, wobei der echte erwartete Wert $y = 1$ ist. Durch die Anwendung  eines der Verlustfunktionen, stellt das Neuronale Netz fest, wie groß die Abweichung des Ergebnisses von dem tatsächlichen Ergebnis ist. Hierzu werden unterschiedliche Verfahren genutzt  \cite{Matzka2021}(S.124-126). Eines dieser Verfahren ist die mittlere quadratische Abweichung (engl. mean squared error, MSE).
 
 \begin{center}
 	\centering
-	$MSE = \frac{1}{n} (\sum\limits_{i=1}^{n})(Y_{i} - \hat{Y_{i}})^{2}$
+	$MSE = \frac{1}{n} \sum\limits_{i=1}^{n}(Y_{i} - \hat{Y_{i}})^{2}$
 \end{center}
 
-, wobei n Anzahl der Datenpunkte, $Y_{n}$ das erwartete Ergebnis und $\hat{Y_{i}}$ die prognostizierten Werte sind.\\
+, wobei $n$ Anzahl der Datenpunkte, $Y_{n}$ das erwartete Ergebnis und $\hat{Y_{i}}$ die prognostizierten Werte sind.\\
 
-In diesem Beispiel wird es wie folgt berechnet.
+Mit den vorher angenommenen Werten wird der Fehler wie folgt berechnet.
 
 \begin{center}
 	$MSE = \frac{1}{1} \sum\limits_{i=1}^{1}(Y_{i} - \hat{Y_{i}})^{2}$\\
@@ -164,37 +196,46 @@ In diesem Beispiel wird es wie folgt berechnet.
 	$MSE = 1 * (1 - 0.75)^{2} = 0.0625$\\
 \end{center}
 
-Somit kennt das Neuronale Netz die Abweichung der Prognose, womit es den Lernprozess starten kann. Es stellt sich die frage wie das Neuronale Netz sich optimieren bzw. verbessern lässt. \cite{Plaue2021} (S.194).  Es ist bekannt das ein Neuronales Netz mehrere Ausgaben liefern kann und für jeder dieser Ausgaben ist es möglich eine Verlustfunktion zuzuweisen. \cite{Chollet2018}.
-	
+Somit kennt das Neuronale Netz die Abweichung der Prognose, womit es den Lernprozess starten kann. Es stellt sich die Frage wie das Neuronale Netz sich optimieren bzw. verbessern lässt. \cite{Plaue2021} (S.194).  Es ist bekannt das ein Neuronales Netz mehrere Ausgaben liefern kann und für jeder dieser Ausgaben ist es möglich eine Verlustfunktion zuzuweisen. \cite{Chollet2018}.
+
 \subsubsection{Verlustfunktion}
 
-Die Verlustfunktion (engl. loss-, costfunktion) wird in der Optimierung während der Trainingsphase genutzt. Hierzu gibt es Verschiedentliche Funktionen wie zum Beispiel der oben genannte mittlere quadratische Abweichung. Ein anderes Beispiel, ist die Cross-Entropy-Loss Funktion, welches für die Optimierung von klassifikatorische  modele geeignet ist. Die Cross-Entropy-Loss Funktion ist ähnlich wie die Softmax Funktion aufgebaut. Sie misst den Abstand zwischen den Prognostizierten Wert und den Wahrheitswert, um so nah wie möglich in die richtige Richtung des Ergebnisses zu bewegen. Während der Trainingsphase werden die Gewichte iterativ und entsprechend mit dem Ziel, den Cross-Entropy-Loss zu minimieren, angepasst \cite{Mahmood2018}. Im Rahmen dieser Arbeit wird die Cross-Entropy-Loss Funktion angewendet, da es sich um eine mehrfachklassifizierung handelt.
+Die Verlustfunktion (engl. loss-, costfunktion) wird für die Optimierung während der Trainingsphase genutzt. Hierzu gibt es verschiedentliche Funktionen wie zum Beispiel die oben genannte mittlere quadratische Abweichung. Ein anderes Beispiel ist die Cross-Entropy-Loss Funktion, welche für die Optimierung von Klassifizierungs-Modellen geeignet ist. Die Cross-Entropy-Loss Funktion ist ähnlich wie die Softmax-Funktion aufgebaut. Sie misst den Abstand zwischen dem prognostizierten Wert und dem Wahrheitswert, um den Fehler zu erkennen und die Gewichte so anzupassen, dass das Modell bessere Ergebnisse erzielt. Während der Trainingsphase werden die Gewichte iterativ und entsprechend mit dem Ziel, den Cross-Entropy-Loss zu minimieren, angepasst \cite{Mahmood2018}. Im Rahmen dieser Arbeit wird die Cross-Entropy-Loss Funktion angewendet, da es sich um eine Mehrklassen Klassifizierung handelt.
 
 \subsubsection{Rückpropagierung}
 
-Die Anpassung der entsprechende Gewichte wird durch den Rückpropagierung er-möglicht. Damit die Gewichte angepasst werden können, ist es nötig das das Model Fehlerwert ein Minimum annimmt. Es ist bekannt das mit dem Gradienten der Funktion das Minimum erreichbar ist, welches die partielle Ableitung aller Vektoren darstellt. Dieser Vektor wird auch $\delta(f)$ genannt. Sie zeigt an jedem Punkt der Funktion, die Richtung der steilsten anstieg  (bzw. maximum), wobei  $-\delta(f)$ die Richtung der steilsten abstieg (bzw. minimum) der Funktion zeigt \cite{Vogl2021} (S.337). Allgemein wird der Gradientenverfahren folgendermaßen dargestellt:\\
+Die Anpassung der entsprechenden Gewichte wird durch die Rückpropagierung er-möglicht. Damit die Gewichte angepasst werden können, ist es notwendig, dass die Verlustfunktion des Modells ein Minimum annimmt. Es ist bekannt, dass mit dem Gradienten der Funktion das Minimum erreichbar ist, welches die partielle Ableitung aller Vektoren darstellt. Dieser Vektor wird auch $\delta(f)$ genannt. Er zeigt an jedem Punkt der Funktion, die Richtung des steilsten Anstiegs  (bzw. Maximums). $-\delta(f)$ zeigt die Richtung des steilsten Abstiegs (bzw. Minimums) der Funktion \cite{Vogl2021} (S.337) an. Allgemein wird das Gradientenverfahren folgendermaßen dargestellt:\\
 
 \begin{center}
 	$x^{i+1} = x^{i} - \eta * \delta(f(x^{i}))$
 \end{center}
 
-, wobei $x^{0}$ der Startpunkt ist und $\eta$ die Schrittweite, welches auch als die Lernrate beschrieben wird. Diese Verfahren lässt sich wie folgt bei den Gewichten integrieren.
+, wobei $x^{0}$ der Startpunkt ist und $\eta$ die Schrittweite, welche auch als die Lernrate beschrieben wird. Dieses Verfahren lässt sich wie folgt bei den Gewichten integrieren.
 
 \begin{center}
 	$w_{neu} = w_{alt} - \eta * \delta (E(W_{alt}))$
 \end{center}
 
-, wobei w das Gewicht darstellt und $\eta$ die Schrittweite.\\
+, wobei $w$ das Gewicht darstellt und $\eta$ die Schrittweite.\\
 \\
-Somit kann das Neuronale Netz seine Gewichte anpassen, womit es sich optimieren kann. Die partielle Ableitung der Fehlerfunktion E, wird durch die verwendung der Kettenregeln bestimmt.
+Somit kann das Neuronale Netz seine Gewichte anpassen und eine Optimierung ermöglichen. Die partielle Ableitung der Fehlerfunktion $E$, wird durch die Verwendung der Kettenregel bestimmt.
 
 \begin{center}
 	$\frac{\delta E(W)}{\delta w_{ij}} =\sum_{k=1}^{n}[\frac{\delta}{\delta w_{ij}}(\frac{1}{2}(Y_{i} - \hat{Y_{i}})^{2})]$
 \end{center}
 
-, wobei $Y_{i}$ der prognostizierter Wert ist und $\hat{Y_{i}}$ der erwartete Zielwert. Dabei muss man achten, dass die $Y_{i}$ Werte vom Anfang an bekannt ist. Somit berechnet das Modell den Fehler mit der Fehlerfunktion und wendet die partielle Ableitung auf diese. Dadurch werden Gewichte mit der oben genannte Formel angepasst.   \cite{Vogl2021} (S.337-338). 
+, wobei $Y_{i}$ der prognostizierter Wert ist und $\hat{Y_{i}}$ der erwartete Zielwert. Dabei muss beachtet werden, dass die $Y_{i}$ Werte von Anfang an bekannt sind. Somit berechnet das Modell den Fehler mit der Fehlerfunktion und wendet die partielle Ableitung auf diese an. Dadurch werden die Gewichte mit der oben genannten Formel angepasst. \cite{Vogl2021} (S.337-338). 
+
+\subsubsection{Ablauf der Fehlerrückführung}
+
+Damit dieser Ablauf genauer beschrieben wird, müssen die Schritte zur Optimierung des Modells definiert werden. Zunächst muss die Feed-Forward Propagierung stattfinden, damit die Gewichte $W^{l}$ und Bias $b^{l_{j}}$ (siehe Abbild \ref{fig:fig10}), wobei $l$ den Index von der Schicht darstellt, initialisiert werden. Als nächstes wird der Ausgabefehler berechnet, welches die Verlustfunktion darstellt. Durch diese Funktion wird die Größe des Fehlers berechnet. Im darauffolgendem Schritt, findet die Fehlerrückführung statt, welche durch die Rückpropagierung ermöglicht wird. Bei der Fehlerrückführung wird für jede Schicht $l$ $\in{L-1, L-2, ..., 1}$ folgende Berechnung durchgeführt.
+
+\begin{center}
+	$\delta^{l} = (D\phi_{l}(x^{l}))^{T} * (w^{l+1})^{T} * \phi_{l+1}$
+\end{center}
 
 
+Nachdem diese Schritte vollständig bearbeitet wurden, werden die Gewichte angepasst, wodurch das Modell optimiert wird \cite{Plaue2021} (S.243).
 
 \section{Deep Learning}
 
@@ -207,7 +248,7 @@ Bei Deep Learning handelt es sich um eine Teilmenge der Maschinellen Lernalgorit
 ,wobei $sig(t) \in [0,1]$ und $ t \in \mathbb{R}$ gilt. 
 \\
 
-Dies bedeutet, dass die Neuronen immer eine Zahl übertragen bekommen, die zwischen 0 und 1 liegt. Somit können durch Implementierungen Schwellenwerte definiert und dementsprechend Neuronen aktiviert oder deaktiviert werden \cite{Frochte2021}(S.178).\\
+Dies bedeutet, dass die Neuronen immer eine Zahl übertragen bekommen, die zwischen 0 und 1 liegt. Somit können durch Implementierungen Schwellenwerte definiert und dementsprechend Neuronen aktiviert oder deaktiviert werden \cite{Frochte2021}(S.178). \\
 
 \begin{figure}[h!]
 	\centering
@@ -227,13 +268,14 @@ Bei einem CNN, im Deutschen "gefaltetes Neuronales Netzwerk", handelt es sich vo
 	\label{fig:fig5}
 \end{figure}
 
-In Abbildung \ref{fig:fig5} sind mehrere Schichten (Layer) zu sehen. Dabei ist die Eingabeschicht (Inputlayer) und die Ausgabeschicht (Outputlayer) bekannt. Wie im vorherigen Abschnitt auch definiert, hat ein CNN mehrere verborgene Schichten, darunter den \textbf{Convolutional Layer}, der einzelne Merkmale aus den Eingabedaten ortsunabhängig erkennt und daraufhin diese extrahiert. Diese Merkmale könnten bei einer Bildverarbeitung den Kanten, Linienformen und Farbtupfer entsprechen, die eine Struktur darstellen. Diese Merkmale werden in der \textbf{Pooling-Schicht}, auch als Subsampling bekannt, bearbeitet, indem die Auflösung der Merkmale reduziert und verdichtet wird. Somit werden überflüssige Informationen verworfen, wodurch die Datenmenge reduziert wird. Dadurch wird die Berechnungsgeschwindigkeit erhöht. Diese zwei Schichten können so oft wie möglich verwendet werden, da sie nur Merkmale aus den Bilder extrahieren und optimierend zu Verfügung stehen. Die eigentliche Klassifikation entsteht durch den \textbf{Fully-Connected Layer}, im Deutschen "vollständig verknüpfte Schicht", der sich der wiederholten Abfolge der Convolutional- und Pooling-Schichten anschließt, indem alle Merkmale der vorgelagerten Schichten mit jedem Ausgabemerkmal verknüpft sind. Somit werden mögliche Kombinationen aus den Strukturen entworfen, die komplexere Strukturen identifizieren lassen. Wichtig ist hierbei, dass die Anzahl an Neuronen in der vollständig vernetzten Schicht abhängig von den Klassen oder Objekten sind \cite{Luber2019}. 
+In Abbildung \ref{fig:fig5} sind mehrere Schichten (Layer) zu sehen. Dabei ist die Eingabeschicht (Inputlayer) und die Ausgabeschicht (Outputlayer) bekannt. Wie im vorherigen Abschnitt auch definiert, hat ein CNN mehrere verborgene Schichten, darunter den \textbf{Convolutional Layer}, der einzelne Merkmale aus den Eingabedaten ortsunabhängig erkennt und daraufhin diese extrahiert. Diese Merkmale könnten bei einer Bildverarbeitung den Kanten, Linienformen, Farbtupfer und Faltung entsprechen, die eine Struktur darstellen. Ein Beispiel dazu wird im folgenden Abbild dargestellt.
+
+Diese Merkmale werden in der \textbf{Pooling-Schicht}, auch als Subsampling bekannt, bearbeitet, indem die Auflösung der Merkmale reduziert und verdichtet wird. Die Pooling-Schicht enthält keine Modellparameter, weshalb das Modell durch diese Schicht nicht wirklich lernt. Somit werden überflüssige Informationen verworfen, wodurch die Datenmenge reduziert wird. Dadurch wird die Berechnungsgeschwindigkeit erhöht. Diese zwei Schichten können so oft wie möglich verwendet werden, da sie nur Merkmale aus den Bilder extrahieren und optimierend zu Verfügung stehen. Die eigentliche Klassifikation entsteht durch den \textbf{Fully-Connected Layer}, im Deutschen "vollständig verknüpfte Schicht", der sich der wiederholten Abfolge der Convolutional- und Pooling-Schichten anschließt, indem alle Merkmale der vorgelagerten Schichten mit jedem Ausgabemerkmal verknüpft sind. Somit werden mögliche Kombinationen aus den Strukturen entworfen, die komplexere Strukturen identifizieren lassen. Wichtig ist hierbei, dass die Anzahl an Neuronen in der vollständig vernetzten Schicht abhängig von den Klassen oder Objekten sind \cite{Luber2019}. 
 	
 \section{Evalutionsmetriken}
 	
-Für die Bewertung eines Klassifizierungsvorgangs werden Performance- Metriken benötigt. Diese Metriken lassen sich aus den relevanten Häufigkeiten der Fehler des Klassifikators welcher er während der Zuordnung der Objekte macht, herleiten. Metriken, die für bei einer Mehrklassen-Klassifizierung verwendet werden können, sind die gleichen Metriken wie für Binäre-Klassifikationsprobleme. Die Metriken werden dabei für jede einzelne Klasse berechnet. Ein beliebtes Verfahren für die Bewertung ist dabei die Wahrheitsmatrix (Konfusionsmatrix). Hier werden die relevanten Häufigkeiten in einer Tabelle dargestellt. Aus dieser Tabelle können dann die Performance-Metriken abgeleitet bzw. berechnet werden. In der nächsten Abbildung ist eine Konfusionsmatrix zu sehen, die ein Beispiel zur Spam-Erkennung beinhaltet \cite{Burkov2019} (K.5.6.1).
+Für die Bewertung eines Klassifizierungsvorgangs werden Performance-Metriken be-nötigt. Diese Metriken lassen sich aus den relevanten Häufigkeiten der Fehler des Klassifikators welcher er während der Zuordnung der Objekte macht, herleiten. Metriken, die für bei einer Mehrklassen-Klassifizierung verwendet werden können, sind die gleichen Metriken wie für Binäre-Klassifikationsprobleme. Die Metriken werden dabei für jede einzelne Klasse berechnet. Ein beliebtes Verfahren für die Bewertung ist dabei die Wahrheitsmatrix (Konfusionsmatrix). Hier werden die relevanten Häufigkeiten in einer Tabelle dargestellt. Aus dieser Tabelle können dann die Performance-Metriken abgeleitet bzw. berechnet werden. In der nächsten Abbildung ist eine Konfusionsmatrix zu sehen, die ein Beispiel zur Spam-Erkennung beinhaltet \cite{Burkov2019} (K.5.6.1).
 
-\newpage
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=12cm,height=5cm]		{Wahrheitsmatrix.png}
@@ -241,9 +283,9 @@ Für die Bewertung eines Klassifizierungsvorgangs werden Performance- Metriken b
 	\label{fig:fig21}
 \end{figure}
 
-Die Achsen der Matrix geben die tatsächlichen und vorhergesagten Kennzeichnungen an. Bei einem binären Klassifikationsproblem gibt es zwei Klassen. In diesem Beispiel sind das „Spam“ und „Kein$\_$Spam“.  Aus der Matrix kann in diesem Fall abgelesen werden, dass von 24 Beispielen, die tatsächlich Spam waren, 23 vom Modell auch richtig als Spam klassifiziert wurden. Es wurden also 23 richtig positiv (RP) klassifiziert. Ein Beispiel wurde fälschlicherweise als „Kein$\_$Spam“ klassifiziert, obwohl es sich dabei um Spam handelte. Dieses Beispiel wurde also falsch negativ (FN) klassifiziert. Außerdem wurden von 568 Beispiel, die eigentlich Spam waren, 556 richtig und 12 wurden falsch klassifiziert. Dies bedeutet, es sind 556 richtig negative (RN) und 12 falsch positive (FP) Klassifizierungen vorhanden. Die positive Klasse ist dabei „Spam“ und die negative Klasse „Kein$\_$Spam“. \\
+Die Achsen der Matrix geben die tatsächlichen und vorhergesagten Kennzeichnungen an. Bei einem binären Klassifikationsproblem gibt es zwei Klassen. In diesem Beispiel sind das „Spam“ und „Kein$\_$Spam“.  Aus der Matrix kann in diesem Fall abgelesen werden, dass von 24 Beispielen, die tatsächlich Spam waren, 23 vom Modell auch richtig als Spam klassifiziert wurden. Es wurden also 23 richtig positiv (RP) klassifiziert. Ein Beispiel wurde fälschlicherweise als „Kein$\_$Spam“ klassifiziert, obwohl es sich dabei um Spam handelte. Dieses Beispiel wurde also falsch negativ (FN) klassifiziert. Außerdem wurden von 568 Beispiel, die eigentlich Spam waren, 556 richtig und 12 wurden falsch klassifiziert. Dies bedeutet, es sind 556 richtig negative (RN) und 12 falsch positive (FP) Klassifizierungen vorhanden. Die positive Klasse ist dabei „Spam“ und die negative Klasse „Kein$\_$Spam“ \cite{Burkov2019} (K.5.6.1). \\
 
-Möchte man diese Art von Bewertung für ein Mehrklassen-Klassifikationsproblem (Multi-Class-Klassifikationsproblem) anwenden, muss die Anzahl der Zeilen und Spalten der Matrix, der Anzahl der verschiedenen vorhandenen Klassen entsprechen. Die Wahrheitsmatrix wird zum Beispiel für die Berechnung von Präzision (Precision), Trefferquote (Recall) oder Korrektklassifikationsrate (Accuracy) verwendet. Es gibt noch weitere Metriken, die aus der Matrix abgelesen werden können. Jedoch werden nur die drei genannten Metriken im Rahmen dieser Arbeit und damit für die Bewertung der Experimente verwendet.  
+Möchte man diese Art von Bewertung für ein Mehrklassen-Klassifikationsproblem (Multi-Class-Klassifikationsproblem) anwenden, muss die Anzahl der Zeilen und Spalten der Matrix, der Anzahl der verschiedenen vorhandenen Klassen entsprechen. Die Wahrheitsmatrix wird zum Beispiel für die Berechnung von Präzision (Precision), Trefferquote (Recall) oder Korrektklassifikationsrate (Accuracy) verwendet. Es gibt noch weitere Metriken, die aus der Matrix abgelesen werden können. Jedoch werden nur die drei genannten Metriken im Rahmen dieser Arbeit und damit für die Bewertung der Experimente verwendet \cite{Burkov2019} (K.5.6.1).  
 
 \subsection{Präzision (Precision) und Trefferquote (Recall)} 
 
@@ -271,7 +313,7 @@ Diese Metriken finden vor allem bei binären Klassifikationsproblemen Anwendung,
 		Korrektklassifikationsrate  =$\frac{RP + RN}{RP + RN + FP + FN}$
 \end{center}
 	
-Diese Metrik ist vor allem dann eine sinnvolle Größe, wenn die vorhandenen Klassen im Datensatz gleich wichtig sind. Bei der Auswahl von Metriken für einen Klassifikationsvorgang ist vor allem das Ziel bzw. die Wichtigkeit der einzelnen Metriken zu beachten. In dem Beispiel der Spam Erkennung wird man falsch negative Klassifizierungen eher in Kauf nehmen als falsch positive. Den eine falsch positive Erkennung von Spam-Mails würde bedeuten, dass das Modell die Mail fälschlicherweise als Spam klassifiziert und die E-Mail dadurch im Posteingang nicht erscheint und untergeht. Bei einer falsch negativen Klassifizierung würde die E-Mail fälschlicherweise als kein Spam klassifiziert werden und sie wäre im Posteingang sichtbar.  
+Diese Metrik ist vor allem dann eine sinnvolle Größe, wenn die vorhandenen Klassen im Datensatz gleich wichtig sind. Bei der Auswahl von Metriken für einen Klassifikationsvorgang ist vor allem das Ziel bzw. die Wichtigkeit der einzelnen Metriken zu beachten. In dem Beispiel der Spam Erkennung wird man falsch negative Klassifizierungen eher in Kauf nehmen als falsch positive. Den eine falsch positive Erkennung von Spam-Mails würde bedeuten, dass das Modell die Mail fälschlicherweise als Spam klassifiziert und die E-Mail dadurch im Posteingang nicht erscheint und untergeht. Bei einer falsch negativen Klassifizierung würde die E-Mail fälschlicherweise als kein Spam klassifiziert werden und sie wäre im Posteingang sichtbar \cite{Burkov2019} (K.5.6.3).  
 	
 \newpage
 \chapter{CRISP-DM Modell}
@@ -301,7 +343,7 @@ Um die finale Menge der Datenauswahl zu erstellen, wird der Schritt Data Prepara
 	
 \subsubsection{Modeling}
 	
-Um eine vorliegende Problemstellung aus dem Bereich Maschinelles Lernen lösen zu können, stehen verschiedene Modelle beziehungsweise Algorithmen zur Verfügung. Aus diesen Modellen wird dann das Model ausgesucht, welches im Bezug zum definierten Ziel das optimale Ergebnis liefert. Manche Modelle benötigen hierzu vorbestimmte Datenstrukturen, die dazu führen können, einen Schritt zurück zu gehen und sich noch einmal mit der Datenvorbereitung zu befassen. Anschließend wird das Modell trainiert und getestet um die Qualität und Genauigkeit des Modells zu überprüfen \cite{Wuttke}.
+Um eine vorliegende Problemstellung aus dem Bereich Maschinelles Lernen lösen zu können, stehen verschiedene Modelle beziehungsweise Algorithmen zur Verfügung. Aus diesen Modellen wird dann das Modell ausgesucht, welches im Bezug zum definierten Ziel das optimale Ergebnis liefert. Manche Modelle benötigen hierzu vorbestimmte Datenstrukturen, die dazu führen können, einen Schritt zurück zu gehen und sich noch einmal mit der Datenvorbereitung zu befassen. Anschließend wird das Modell trainiert und getestet um die Qualität und Genauigkeit des Modells zu überprüfen \cite{Wuttke}.
 	
 \subsubsection{Evaluation}
 	
@@ -419,13 +461,13 @@ Das erste implementierte CNN-Modell beinhaltet folgende drei Layer, die in vorhe
 	\label{tab:model1}
 \end{itemize}
 	
-Der Conv2D und MaxPooling2D Layer gehören, wie in Kapitel 2 beschrieben, zu dem Feature-Extraktor. Die beiden Schichten werden zwei mal nacheinander in das Modell integriert. Im Anschluss werden dem Modell zwei Dense Layer hinzugefügt. Der erste Conv2D Layer bekommt die Eingabedaten im 28x28 Pixel Format, daher erhält diese Schicht einen Input-Parameter, der die Dimension der Eingabedaten beschreibt. Im MaxPooling2D werden die aus den Conv2D extrahierten Merkmale in eine 14x14 dimensionale Matrix zusammengefasst. Der zweite Conv2D Layer erhält nach dem MaxPooling2D Layer Daten in der Form 14x14 Pixeln, aus dem der Layer dann wiederum Merkmale extrahiert. Der anschließende MaxPooling2D Schicht fasst diese Merkmale dann nochmals zusammen. Als nächstes formt der Flatten Layer die Merkmale in eine eindimensionale Matrix um. Zuletzt folgen dann die beiden Dense Layer. Die erste Dense Schicht ist der Fully-Connected Layer und die zweite eingesetzte Dense Schicht der Output Layer (Ausgabeschicht). Der ersten Dense Schicht wird dabei die Aktivierungsfunktion Recitifier übergeben. Die Recitifer (relu) wird wie Folgt definiert.
+Der Conv2D und MaxPooling2D Layer gehören, wie in Kapitel 2 beschrieben, zu dem Feature-Extraktor. Die beiden Schichten werden zwei mal nacheinander in das Modell integriert. Im Anschluss werden dem Modell zwei Dense Layer hinzugefügt. Der erste Conv2D Layer bekommt die Eingabedaten im 28x28 Pixel Format, daher erhält diese Schicht einen Input-Parameter, der die Dimension der Eingabedaten beschreibt. Im MaxPooling2D werden die aus den Conv2D extrahierten Merkmale in eine 14x14 dimensionale Matrix zusammengefasst. Der zweite Conv2D Layer erhält nach dem MaxPooling2D Layer Daten in der Form 14x14 Pixeln, aus dem der Layer dann wiederum Merkmale extrahiert. Der anschließende MaxPooling2D Schicht fasst diese Merkmale dann nochmals zusammen. Als nächstes formt der Flatten Layer die Merkmale in eine eindimensionale Matrix um. Zuletzt folgen dann die beiden Dense Layer. Die erste Dense Schicht ist der Fully-Connected Layer und die zweite eingesetzte Dense Schicht der Output Layer (Ausgabeschicht). Der ersten Dense Schicht wird dabei die Aktivierungsfunktion Recitifier übergeben. Die Recitifer (relu) wird wie folgt definiert.
 	
 \begin{center}
-	$f(x) = max(0,x)$, wobei x der Eingangswert ist.
+	$f(x) = max(0,x)$, wobei $x$ der Eingangswert ist.
 \end{center}
-	
-Der entweder den maximalen Wert x zurück gibt oder eine null wenn es einen anderes Maximum schon existiert. Für die Ausgabeschicht wird die Aktivierungsfunktion softmax eingestellt. Damit wird das erste Modell finalisiert und kann trainiert werden.
+
+Die Funktion gibt den maximalen Wert zurück, der entweder $x$ oder Null ist. Für die Ausgabeschicht wird die Aktivierungsfunktion Softmax eingestellt. Damit wird das erste Modell finalisiert und kann trainiert werden.
 	
 \begin{figure}[h!]
 	\centering
@@ -434,11 +476,11 @@ Der entweder den maximalen Wert x zurück gibt oder eine null wenn es einen ande
 	\label{fig:fig13}
 \end{figure}
 	
-Insgesamt kann das Model 53,790 Parameter trainieren. Bevor das Training gestartet werden kann, müssen noch einige Variablen definiert werden. Zunächst braucht das Modell ein optimizer der ein tensorflow Objekt darstellt. Dieses Objekt beschreibt den Optimierung Vorgang für das Modell. In diesem Fall wird der optimizer als "tf.keras.optimizers.Adam()" definiert, der den stochastische Gradientenabstiegsverfahren beschreibt. Der nächste Parameter definiert die Verlustfunktion des Modells, welches wir als Cross-Entropy-Loss Funktion angeben. Als Bewertungsmetrik wird dem Modell die Genauigkeit (engl. accuracy) ausgewählt, die Prozentual angibt wie gut ein Modell prognostiziert. Zu letzte werden Epochen-Anzahl und Batch-Größen angegeben. 
+Insgesamt kann das Modell 53,790 Parameter trainieren. Bevor das Training gestartet werden kann, müssen noch einige Variablen definiert werden. Zunächst braucht das Modell ein optimizer der ein tensorflow Objekt darstellt. Dieses Objekt beschreibt den Optimierungsvorgang für das Modell. In diesem Fall wird der optimizer als "tf.keras.optimizers.Adam()" definiert, der das stochastische Gradientenabstiegsverfahren beschreibt. Der nächste Parameter definiert die Verlustfunktion des Modells, welche wir als Cross-Entropy-Loss Funktion angeben. Als Bewertungsmetrik für das Modell, wird die Genauigkeit (engl. accuracy),die Präzision (engl. precision) und die Trefferquote (engl. recall) ausgewählt. Diese Metriken geben prozentual an, wie gut ein Modell prognostiziert. Zuletzt werden Epochen-Anzahl und Batch-Größen angegeben. 
 	
 \subsubsection{Trainingsphase}
 	
-Mit dem Fitten der Trainings- und Validierungsdaten wird die Trainingsphase gestartet. Nachdem die Trainingsphase beendet ist werden Bewertungsmetriken genutzt um eine Darstellung der Leistung des Modells zu bekommen.
+Mit der Übergabe der Trainings- und Validierungsdaten wird die Trainingsphase gestartet. Nachdem die Trainingsphase beendet ist werden die Bewertungsmetriken genutzt, um eine Darstellung der Leistung des Modells zu erhalten.
 	
 \begin{figure}[h!]
 	\centering
@@ -447,21 +489,21 @@ Mit dem Fitten der Trainings- und Validierungsdaten wird die Trainingsphase gest
 	\label{fig:fig14}
 \end{figure}
 	
-Die Ergebnisse zeigen, das die erste Epoche eine Genauigkeit von $86,56\%$ hat und die sich bei den nächste Epoche erhöhen. Damit hat das Model am ende eine Genauigkeit, während dem Training von $91\%$. Sichtbar ist die Differenz zwischen accuracy ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accurac$, welches die Genauigkeit der Validierungsdaten anzeigt wird hier in Betracht gezogen, da diese zu Validierung des Modells erstellt worden ist und komplett abgekapselt von den Trainingsdaten übergeben wurde. Der nächste Schritt zu Optimierung des Modell, sollte die Anpassung sein, welches den Abstand der Genauigkeiten verringert. Es ist auch ersichtlich, dass die loss-Werte gegen null näher. Dies Zeigt, dass das Modell sich verbessert bzw. optimiert. Die Leistung können wir auch anhand eines Graphen bilden indem, die Ergebnisse in Epoche aufgeteilt und  geplotten werden, dies wird folgendermaßen Dargestellt.\\
+Die Ergebnisse zeigen, dass die erste Epoche eine Genauigkeit von $86,56\%$ erreicht und diese sich bei den nächsten Epochen erhöht. Damit hat das Modell am Ende der Trainingsphase eine Genauigkeit von $91\%$. Sichtbar ist die Differenz zwischen $accuracy$ ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accuracy$, welche die Genauigkeit der Validierungsdaten anzeigt, wird hier stattdessen in Betracht gezogen. Die Daten, die für die Validierung ausgewählt wurden, werden komplett abgekapselt von den Trainingsdaten übergeben. Der nächste Schritt für die Optimierung des Modells, sollte die Anpassung sein, wodurch der Abstand der Genauigkeiten verringert wird. Es ist auch ersichtlich, dass die loss-Werte sich gegen null nähern. Dies zeigt, dass das Modell sich verbessert bzw. optimiert. Die Leistung kann auch anhand eines Graphen dargestellt werden, wobei die Ergebnisse in Epochen aufgeteilt und geplottet werden. Dieser Graph ist in der nächsten Abbildung zu sehen.\\
 \\
 \\
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm,height=9.5cm]		{ExperimentModelBewertungsgraf_1.png}
-	\caption{ Bewertung Trainingsphase anhand Graphen \cite{HK22}(Experiment 1)}
+	\includegraphics[width=10cm,height=8cm]		{ExperimentModelBewertungsgraf_1.png}
+	\caption{ Bewertung der Trainingsphase anhand eines Graphen \cite{HK22}(Experiment 1)}
 	\label{fig:fig15}
 \end{figure}
 	
-In diesem Abbild wird die Verbesserung des Modell durchaus ersichtlicher. Es ist klar deutlich das sich die loss-Werte gegen null näher, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche.
+In diesem Abbild wird die Verbesserung des Modells durchaus ersichtlicher. Es ist deutlich, dass sich die loss-Werte gegen null nähern, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche.
 	
 \subsection{Experiment 2}
 	
-In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter verbessert. Das Ziel ist zunächst die reduzierung der Differenz von $val\_accuracy$ und accuracy, damit das Modell genauere Bewertung liefern kann. Dafür wird die Dropout Schicht benutzt, welches die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer \cite{tensorflow2022}.
+In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und weiter verbessert. Das Ziel ist zunächst die Reduzierung der Differenz von $val\_accuracy$ und $accuracy$, damit das Modell genauere Ergebnisse liefern kann. Dafür wird die Dropout Schicht verwendet, welche die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer \cite{tensorflow2022}.
 	
 \begin{itemize}
 	\item Convolutional Layer (Conv2D)
@@ -471,6 +513,7 @@ In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter
 	\item Fully-Connected Layer (Dense)
 	\label{tab:model2}
 \end{itemize}
+\newpage
 
 \subsubsection{Trainingsphase}
 
@@ -481,7 +524,9 @@ In diesem Experiment wird das Modell aus dem Experiment 1 übernommen und weiter
 	\label{fig:fig16}
 \end{figure}
 
-Es wird deutlich das die Genauigkeit der Trainingsdaten in diesem Model, mit der, die Genauigkeit der Validierungsdaten übereinstimmt. Somit wird die Überanpassung der Trainingsdaten verhindert, womit das Modell genauere Berechnungen führen kann. Die Differenz der Genauigkeit $accuracy$ und $val\_accuracy$ wurde von $2\%$ auf  $0.38\%$ reduziert. Somit sind die Genauigkeiten angepasst. 
+
+
+Es wird deutlich, dass die Genauigkeit der Trainingsdaten, mit der Genauigkeit der Validierungsdaten fast übereinstimmt. Durch das Hinzufügen der Dropout Schicht wird also eine Überanpassung an die Trainingsdaten verhindert, womit das Modell auf unbekannte Daten besser vorbereitet ist. Die Differenz der Genauigkeit $accuracy$ und $val\_accuracy$ wurde von $2\%$ auf  $0.38\%$ reduziert. 
 
 \subsection{Experiment 3}
 
