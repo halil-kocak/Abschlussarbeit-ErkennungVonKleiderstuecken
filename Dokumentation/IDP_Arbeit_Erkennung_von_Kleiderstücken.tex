@@ -471,7 +471,7 @@ Die Funktion gibt den maximalen Wert zurück, der entweder $x$ oder Null ist. F�
 	
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm, height=9cm]		{ExperimentModelAufbau_1.png}
+	\includegraphics[width=10.5cm, height=9.5cm]		{ExperimentModelAufbau_1.png}
 	\caption{  Modellaufbau \cite{HK22} (Experiment 1)}
 	\label{fig:fig13}
 \end{figure}
@@ -484,7 +484,7 @@ Mit der Übergabe der Trainings- und Validierungsdaten wird die Trainingsphase g
 	
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm, height=9cm]		{ExperimentModelTrainingsphase_1.png}
+	\includegraphics[width=14cm, height=10cm]		{ExperimentModelTrainingsphase_1.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 1)}
 	\label{fig:fig14}
 \end{figure}
@@ -499,12 +499,12 @@ Die Ergebnisse zeigen, dass die erste Epoche eine Genauigkeit von $86,56\%$ erre
 	\label{fig:fig15}
 \end{figure}
 	
-In diesem Abbild wird die Verbesserung des Modells durchaus ersichtlicher. Es ist deutlich, dass sich die loss-Werte gegen null nähern, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche.
+In diesem Abbild wird die Verbesserung des Modells durchaus ersichtlicher. Es ist deutlich, dass sich die loss-Werte gegen null nähern, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche. Deutlich zu sehen sind die Sprünge der Linien bei den Validierungsmetriken. Eine Erklärung diesbezüglich ist die Überanpassung der Trainingsdaten im Modell, welches im nächsten Modellierungsschritt behandelt werden muss. Zunächst Evaluieren wir das aktuelle Modell im Kapitel \ref{eval:eval1}, damit ein Vergleich mit dem neuen Modell möglich ist.
 	
 \subsection{Experiment 2}
 	
 In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und weiter verbessert. Das Ziel ist zunächst die Reduzierung der Differenz von $val\_accuracy$ und $accuracy$, damit das Modell genauere Ergebnisse liefern kann. Dafür wird die Dropout Schicht verwendet, welche die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer \cite{tensorflow2022}.
-	
+\newpage
 \begin{itemize}
 	\item Convolutional Layer (Conv2D)
 	\item Pooling Layer (MaxPooling2D)
@@ -513,13 +513,13 @@ In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und w
 	\item Fully-Connected Layer (Dense)
 	\label{tab:model2}
 \end{itemize}
-\newpage
+
 
 \subsubsection{Trainingsphase}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm, height=9cm]		{ExperimentModelTrainingsphase_2.png}
+	\includegraphics[width=14cm, height=10cm]		{ExperimentModelTrainingsphase_2.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 2)}
 	\label{fig:fig16}
 \end{figure}
@@ -530,7 +530,7 @@ Es wird deutlich, dass die Genauigkeit der Trainingsdaten, mit der Genauigkeit d
 
 \subsection{Experiment 3}
 
-TODO: Änderung bergründen! Was ist anders?
+In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurde bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten nicht Merkmale verdoppelt an die nächste Schritt übergeben wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichte verdoppelt wurden, muss zunächst die Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht.
 
 \subsubsection{Trainingsphase}
 
@@ -541,23 +541,33 @@ TODO: Änderung bergründen! Was ist anders?
 	\label{fig:fig17}
 \end{figure}
 
-TODO: Bewertung des Modells beschreiben!
+
 
 \section{Evaluation}
 
 Die definierten Modelle, werden nun im Evaluationsschritt getestet. Für das Testen wird hier der Testdaten eingesetzt.
 
-\subsection{Evaluation Experiment 1}
+\subsection{Evaluation Experiment 1}\label{eval:eval1}
+
+Das Modell zur Experiment 1 wurde bisher trainiert und sollte als nächstes getestet werden. Hierzu übergeben wir die Testdaten dem Modell und beginnen mit dem Testen. Uns ist aus den Trainingsphase bekannt das, dass Modell eine Genauigkeit von $91\%$ hat und während der Testphase dies liefern sollte. Bei der Evaluation wird für jede Klasse die Präzision und Trefferquote berechnet. Somit kann für jede Klasse eine Bewertung stattfinden.
+
+\subsubsection{Testphase}
+
+Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit und Verlust berechnet werden. Das aktuelle Modell bring eine Leistung von $91.96\%$ durchschnittliche Genauigkeit und $23.17\%$ durchschnittliche Verlust über alle Klassen. \\
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm,height=9cm]		{ExperimentModelAufbau_1.png}
+	\includegraphics[width=10cm,height=10cm]		{ExperimenteEval1.png}
 	\caption{ Bewertung Testphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig18}
 \end{figure}
 
-//TODO: Welches ergebnisse werden geliefert wie gut ist das modell!
 
+
+
+
+
+\newpage
 \subsection{Evaluation Experiment 2}
 
 \begin{figure}[h!]
@@ -567,9 +577,8 @@ Die definierten Modelle, werden nun im Evaluationsschritt getestet. Für das Tes
 	\label{fig:fig19}
 \end{figure}
 
-//TODO: Welches ergebnisse werden geliefert wie gut ist das modell!
 
-
+\newpage
 \subsection{Evaluation Experiment 3}
 
 \begin{figure}[h!]
