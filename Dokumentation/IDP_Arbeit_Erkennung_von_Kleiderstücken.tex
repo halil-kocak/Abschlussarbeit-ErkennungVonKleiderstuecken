@@ -535,15 +535,23 @@ Im diesem Schritt wurde das Modell so optimiert, dass die Überanpassung verhind
 
 \subsection{Experiment 3}\label{model:ep3}
 
-In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurde bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten nicht Merkmale verdoppelt an die nächste Schritt übergeben wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichte verdoppelt wurden, muss zunächst die Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht.
-
-\subsubsection{Trainingsphase}
+In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurde bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten nicht Merkmale verdoppelt an die nächste Schritt übergeben wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichte verdoppelt wurden, muss zunächst die Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht. Im folgenden Abbild \ref{fig:fig17} ist die Darstellung des geänderten Modell.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13.5cm,height=10cm]		{ExperimentModelAufbau_1.png}
+	\includegraphics[width=13.5cm,height=10cm]		{ExperimentModelAufbau_3.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig17}
+\end{figure}
+
+\subsubsection{Trainingsphase}
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=13.5cm,height=11cm]		{ExperimentModelTrainingsphase_3.png}
+	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
+	\label{fig:fig31}
 \end{figure}
 
 
