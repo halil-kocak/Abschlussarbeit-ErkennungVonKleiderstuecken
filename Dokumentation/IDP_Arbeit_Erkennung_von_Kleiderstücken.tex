@@ -537,22 +537,17 @@ Im diesem Schritt wurde das Modell so optimiert, dass die Überanpassung verhind
 
 In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurde bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten nicht Merkmale verdoppelt an die nächste Schritt übergeben wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichte verdoppelt wurden, muss zunächst die Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht. Im folgenden Abbild \ref{fig:fig17} ist die Darstellung des geänderten Modell.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=13.5cm,height=10cm]		{ExperimentModelAufbau_3.png}
-	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
-	\label{fig:fig17}
-\end{figure}
-
 \subsubsection{Trainingsphase}
 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13.5cm,height=11cm]		{ExperimentModelTrainingsphase_3.png}
+	\includegraphics[width=14cm,height=14cm]		{ExperimentModelTrainingsphase_3.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig31}
 \end{figure}
+
+Während der Trainingsphase erreicht das Modell eine Genauigkeit von maximal $95.31\%$ was ein Erhöhung der Leistung des Modells darstellt. Der tatsächlicher Wert wird in der \ref{eval:eval3} Evaluierung berechnet.
 
 
 \section{Evaluation}\label{eval:eval}
@@ -579,13 +574,12 @@ Das Modell erzielt bei jeder Klasse unterschiedliche Präzision und Trefferquote
 \subsection{Evaluation Experiment 2}\label{eval:eval2}
 
 Bisher wurde das Experiment 2 erstellt und es sollten keine Überanpassungen mehr stattfinden. Mit diesem Schritt Testen wir das optimierte Modell neu, um Änderungen bei den Metriken zu erkennen.
-\newpage
 \subsubsection{Testphase}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=10cm,height=7cm]		{ExperimenteEval1und2Vergleich.png}
-	\caption{ Bewertung Testphase mit Vergleichswerten aus dem Experiment 1 \cite{HK22}(Experiment 3)}
+	\caption{ Bewertung Testphase mit Vergleichswerten aus dem Experiment 1 \cite{HK22}(Experiment 2)}
 	\label{fig:fig30}
 \end{figure}
 
@@ -618,29 +612,65 @@ Im Abbild \ref{fig:fig30} sind die neue Lösungen des optimierten Modells mit de
 			Ankle boot & -3\% & +1\% \\
 			\hline
 		\end{tabular}
-		\caption{Differenz neue und alte Ergebnisse}
+		\caption{Differenz neue und alte Ergebnisse für Experiment 2}
 		\label{tab:differenz}
 	\end{center}
 \end{table}
-\newpage
 
 Durch die Tabelle \ref{tab:differenz} werden die Ergebnisse deutlicher beschrieben. Durch das Verhindern der Überanpassung wurde die Klassifikation im Modell für die Klassen angepasst. Da dieses Modell nur die Überanpassung bearbeitet hat ist auch demnach keine Verbesserung des Modell deutlich. Die Trefferquoten wurden bei den Klassen Trouser, Shirt und Pullover um $1\%$ verbessert. Die Klassen Coat und Dress haben sich im gegenzug verschlechtert. Leider wurde das Modell nicht gut optimiert, daher wäre die Empfehlung in diesem Fall, den sprung zur Modellierung \ref{model:ep3} zurück zu machen. 
 
 \subsection{Evaluation Experiment 3}\label{eval:eval3}
 
+Durch die Modellierung wurde das Modell im dritten Anlauf noch einmal optimiert. Dies wird in den nächsten Schritten näher betrachtet und ein verglich zum alten Modell und eine Tabelle der Differenz der Ergebnisse darstellt erstellt. Die durchschnittliche Genauigkeit wurde in diesem Modell mit $92.97\%$ und der durchschnittlicher Verlust $21.09\%$ berechnet.
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm,height=9cm]		{ExperimentModelAufbau_1.png}
+	\includegraphics[width=10cm,height=7cm]		{ExperimenteEval2und3Vergleich.png}
 	\caption{ Bewertung Testphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig20}
 \end{figure}
 
-TODO: Welches Ergebnisse werden geliefert wie gut ist das modell!
+Im Abbild \ref{fig:fig20} werden die Klassen mit ihren Ergebnissen aus dem letzten Modell und dem aktuellen Modell dargestellt. Wenn die Klassen den Eintrag des letzten Modells nicht beinhaltet, wird heraus gefolgert, dass diese keine Änderung an seine Ergebnisse hatte. Im nächsten Schritt werden diese änderungen im detai betrachtet, indem die Differenz der Ergebnisse berechnet wird und als Tabelle dargstellten wird. Ein Beispiel dazu ist die darauffolgende Tabelle \ref{tab:differenz2}.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Klasse & Differenz Präzision & Differenz Trefferquote \\
+			\hline
+			Top  & +3\% & 0\\
+			\hline
+			Trouser  & +1\% & +1\%  \\
+			\hline
+			Pullover   & 0 & +3\% \\
+			\hline
+			Dress   & 0 & +2\% \\
+			\hline
+			Coat   & -4\% & +10\% \\
+			\hline
+			Sandal & +1\% & -1\% \\
+			\hline
+			Shirt & +4\% & +1\% \\
+			\hline
+			Sneaker & +1\% & +1\% \\
+			\hline
+			Bag & 0 & 0 \\
+			\hline
+			Ankle boot & +2\% & +1\% \\
+			\hline
+		\end{tabular}
+		\caption{Differenz neue und alte Ergebnisse für Experiment 2}
+		\label{tab:differenz2}
+	\end{center}
+\end{table}
+
+TODO:änderungen erläutern verbesserungen erwähnen
+
 
 \section{Deployment}\label{dp:dp}
 
-	
-\section{Zusammenfassung und Ausblick}
+\newpage
+\chapter{Zusammenfassung und Ausblick}
 
 
 \cleardoubleoddpage
