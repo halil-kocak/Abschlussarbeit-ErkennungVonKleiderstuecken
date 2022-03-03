@@ -445,11 +445,13 @@ Die Skalierung von Merkmalen dient zur Normalisierung des Bereichs der erklären
 	
 In dem Ausgangsdatensatz stellt jede Zeile mit seinen 784 Spalten, die wiederum als 28x28 Pixel zu verstehen sind, jeweils ein Bild dar. Für die spätere Verwendung der Daten, müssen diese aber umgeformt werden. Die Umformung der Graustufenbilder muss so erfolgen, dass ein Bild durch 28 Zeilen und 28 Spalten dargestellt wird und so die Pixel wiedergibt. Dadurch kann das Neuronale Netz eine genaue Position der Pixel identifizieren. Die dafür verwendete Methode kann dem beigefügten Notebook entnommen werden. Im Rahmen der Datentransformation werden außerdem die Zielvariablen in die vorhandenen 10 Kategorien unterteilt.
 	
-\section{Modellierung}
+\section{Modellierung}\label{model:model}
 	
+In diesem Schritt wird ein Maschinelles Lernalgorithmus erstellt und trainiert. Die Optimierung dieses Modells findet in einer bestimmte Reihenfolge statt. Zunächst wird ein Modell erstellt, welches Trainiert und mit den Validierungsdaten bewertet wird. Als nächstes wird das Modell im Schritt \ref{eval:eval} Evaluation evaluiert. Durch das Testen wird es möglich die neu implementierten Modell mit dem alten Modell zu vergleichen. Ist man mit den Ergebnissen nicht zufrieden oder das Zielergebniss wurde nicht erreicht, so springt man zur Phase \ref{model:model} Modelliereung zurück und versucht das Modell zu optimieren. Sollten die Zielergebnisse erreicht werden, so geht es mit dem schritt \ref{dp:dp} Deployment weiter.\\
+\\
 Insgesamt werden drei verschiedene implementierte Modelle vorgestellt und im nächsten Abschnitt evaluiert. Jedes Modell bzw. Experiment beinhaltet dabei ein Convolutional Neuronal Network. Die Unterschiede der drei Modelle liegen dabei in den verwendeten Schichten und deren Zusammenspiel. 
 	
-\subsection{Experiment 1}
+\subsection{Experiment 1}\label{model:ep1}
 	
 Das erste implementierte CNN-Modell beinhaltet folgende drei Layer, die in vorherigen Abschnitten bereits erläutert wurden:
 	
@@ -490,8 +492,6 @@ Mit der Übergabe der Trainings- und Validierungsdaten wird die Trainingsphase g
 \end{figure}
 	
 Die Ergebnisse zeigen, dass die erste Epoche eine Genauigkeit von $86,56\%$ erreicht und diese sich bei den nächsten Epochen erhöht. Damit hat das Modell am Ende der Trainingsphase eine Genauigkeit von $91\%$. Sichtbar ist die Differenz zwischen $accuracy$ ($93,34\%$) und $val\_accuracy$ ($91,14\%$). Die accuracy (auch Genauigkeit genannt) beschreibt in diesem Fall, die Genauigkeit der Trainingsdaten, diese wird jedoch nicht für die Bewertung genutzt. Die $val\_accuracy$, welche die Genauigkeit der Validierungsdaten anzeigt, wird hier stattdessen in Betracht gezogen. Die Daten, die für die Validierung ausgewählt wurden, werden komplett abgekapselt von den Trainingsdaten übergeben. Der nächste Schritt für die Optimierung des Modells, sollte die Anpassung sein, wodurch der Abstand der Genauigkeiten verringert wird. Es ist auch ersichtlich, dass die loss-Werte sich gegen null nähern. Dies zeigt, dass das Modell sich verbessert bzw. optimiert. Die Leistung kann auch anhand eines Graphen dargestellt werden, wobei die Ergebnisse in Epochen aufgeteilt und geplottet werden. Dieser Graph ist in der nächsten Abbildung zu sehen.\\
-\\
-\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=10cm,height=8cm]		{ExperimentModelBewertungsgraf_1.png}
@@ -501,10 +501,10 @@ Die Ergebnisse zeigen, dass die erste Epoche eine Genauigkeit von $86,56\%$ erre
 	
 In diesem Abbild wird die Verbesserung des Modells durchaus ersichtlicher. Es ist deutlich, dass sich die loss-Werte gegen null nähern, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche. Deutlich zu sehen sind die Sprünge der Linien bei den Validierungsmetriken. Eine Erklärung diesbezüglich ist die Überanpassung der Trainingsdaten im Modell, welches im nächsten Modellierungsschritt behandelt werden muss. Zunächst Evaluieren wir das aktuelle Modell im Kapitel \ref{eval:eval1}, damit ein Vergleich mit dem neuen Modell möglich ist.
 	
-\subsection{Experiment 2}
+\subsection{Experiment 2}\label{model:ep2}
 	
-In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und weiter verbessert. Das Ziel ist zunächst die Reduzierung der Differenz von $val\_accuracy$ und $accuracy$, damit das Modell genauere Ergebnisse liefern kann. Dafür wird die Dropout Schicht verwendet, welche die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer \cite{tensorflow2022}.
-\newpage
+In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und weiter verbessert. Das Ziel ist zunächst die Reduzierung der Differenz von $val\_accuracy$ und $accuracy$, damit das Modell genauere Ergebnisse liefern kann. Dafür wird die Dropout Schicht verwendet, welche die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer \cite{tensorflow2022}.\\
+
 \begin{itemize}
 	\item Convolutional Layer (Conv2D)
 	\item Pooling Layer (MaxPooling2D)
@@ -514,21 +514,26 @@ In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und w
 	\label{tab:model2}
 \end{itemize}
 
-
 \subsubsection{Trainingsphase}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=14cm, height=10cm]		{ExperimentModelTrainingsphase_2.png}
+	\includegraphics[width=13.5cm, height=10cm]		{ExperimentModelTrainingsphase_2.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 2)}
 	\label{fig:fig16}
 \end{figure}
 
+Es wird deutlich, dass die Genauigkeit der Trainingsdaten, mit der Genauigkeit der Validierungsdaten fast übereinstimmt. Durch das Hinzufügen der Dropout Schicht wird also eine Überanpassung an die Trainingsdaten verhindert, womit das Modell auf unbekannte Daten besser vorbereitet ist. Die Differenz der Genauigkeit $accuracy$ und $val\_accuracy$ wurde von $2\%$ auf  $0.38\%$ reduziert.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=10cm,height=8cm]		{ExperimentModelBewertungsgraf_2.png}
+	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 2)}
+	\label{fig:fig28}
+\end{figure}
 
+Im diesem Schritt wurde das Modell so optimiert, dass die Überanpassung verhindert werden kann. Durch den Graphen im Abbild \ref{fig:fig28} stellen wir fest, dass die Genauigkeiten der Validierungs- und Trainingsdaten konvergieren. Dir großen Sprünge im Graphen wurden genauso beseitigt. Dazu ist die Differenz der Genauigkeiten von $2\%$ auf $0.38\%$ gesunken. Als nächstes wird das Modell mit dem Testdaten getestet, welches im \ref{eval:eval2} Evaluation des zweiten Modells erarbeitet wurde.
 
-Es wird deutlich, dass die Genauigkeit der Trainingsdaten, mit der Genauigkeit der Validierungsdaten fast übereinstimmt. Durch das Hinzufügen der Dropout Schicht wird also eine Überanpassung an die Trainingsdaten verhindert, womit das Modell auf unbekannte Daten besser vorbereitet ist. Die Differenz der Genauigkeit $accuracy$ und $val\_accuracy$ wurde von $2\%$ auf  $0.38\%$ reduziert. 
-
-\subsection{Experiment 3}
+\subsection{Experiment 3}\label{model:ep3}
 
 In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurde bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten nicht Merkmale verdoppelt an die nächste Schritt übergeben wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichte verdoppelt wurden, muss zunächst die Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht.
 
@@ -536,14 +541,13 @@ In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gel
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm,height=9cm]		{ExperimentModelAufbau_1.png}
+	\includegraphics[width=13.5cm,height=10cm]		{ExperimentModelAufbau_1.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig17}
 \end{figure}
 
 
-
-\section{Evaluation}
+\section{Evaluation}\label{eval:eval}
 
 Die definierten Modelle, werden nun im Evaluationsschritt getestet. Für das Testen wird hier der Testdaten eingesetzt.
 
@@ -557,29 +561,29 @@ Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit u
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=10cm,height=10cm]		{ExperimenteEval1.png}
+	\includegraphics[width=10cm,height=8cm]		{ExperimenteEval1.png}
 	\caption{ Bewertung Testphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig18}
 \end{figure}
 
+Das Modell erzielt bei jeder Klasse unterschiedliche Präzision und Trefferquote, dabei werden die Klassen, wie zum Beispiel die Bag, Sandal, Ankle Boot, Dress, Sneaker und Trouser mit Präzision von $95\%$ bis $99\%$ prognostiziert. Die Trefferquote zu diesen Klassen sind im Bereich von $92\%$ bis $98\%$. Somit stellt das Modell für diese Klassen eine gute Leistung dar. Als nächstes werden die Klassen ausgewählt die schlechte Leistungen in dem aktuellen Modell erbringen. Die Klassen Shirt, Coat und Top haben eine Präzision von $83\%$ bis $86\%$ und deren Trefferquote liegt zwischen $69\%$ bis $92\%$, dabei hat die Klassen Coat eine höhere Trefferquote ($92\%$)  als seine Präzision ($86\%$). Aufgrund der Überanpassung im Modell, welches durch die Trainingsphase entdeckt wurde, muss zunächst das Modell im nächsten Schritt \ref{model:ep2} Experiment 2 optimiert werden.
 
+\subsection{Evaluation Experiment 2}\label{eval:eval2}
 
-
-
-
+Bisher wurde das Experiment 2 erstellt und es sollten keine Überanpassungen mehr stattfinden. Mit diesem Schritt Testen wir das optimierte Modell neu, um Änderungen bei den Metriken zu erkennen.
 \newpage
-\subsection{Evaluation Experiment 2}
+\subsubsection{Testphase}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=15cm,height=9cm]		{ExperimentModelAufbau_1.png}
-	\caption{ Bewertung Testphase \cite{HK22}(Experiment 3)}
+	\includegraphics[width=10cm,height=8cm]		{ExperimenteEval1und2Vergleich.png}
+	\caption{ Bewertung Testphase mit Vergleichswerten aus dem Experiment 1 \cite{HK22}(Experiment 3)}
 	\label{fig:fig19}
 \end{figure}
 
+Im Abbild sind die neue Lösungen des optimierten Modells mit den Werten von dem zuvor erstelltem Modell zu sehen. Die Ergebnisse aus dem letzten Modell wurde nur dann aufgeschrieben, wenn es auch eine Änderung gegeben hat. So ist es ersichtlicher was im Modell wirklich optimiert wurde und was nicht.
 
-\newpage
-\subsection{Evaluation Experiment 3}
+\subsection{Evaluation Experiment 3}\label{eval:eval3}
 
 \begin{figure}[h!]
 	\centering
@@ -589,6 +593,8 @@ Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit u
 \end{figure}
 
 TODO: Welches Ergebnisse werden geliefert wie gut ist das modell!
+
+\section{Deployment}\label{dp:dp}
 
 	
 \section{Zusammenfassung und Ausblick}
