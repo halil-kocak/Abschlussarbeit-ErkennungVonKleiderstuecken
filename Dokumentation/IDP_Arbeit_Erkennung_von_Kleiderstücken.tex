@@ -576,12 +576,47 @@ Bisher wurde das Experiment 2 erstellt und es sollten keine Überanpassungen meh
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=10cm,height=8cm]		{ExperimenteEval1und2Vergleich.png}
+	\includegraphics[width=10cm,height=7cm]		{ExperimenteEval1und2Vergleich.png}
 	\caption{ Bewertung Testphase mit Vergleichswerten aus dem Experiment 1 \cite{HK22}(Experiment 3)}
-	\label{fig:fig19}
+	\label{fig:fig30}
 \end{figure}
 
-Im Abbild sind die neue Lösungen des optimierten Modells mit den Werten von dem zuvor erstelltem Modell zu sehen. Die Ergebnisse aus dem letzten Modell wurde nur dann aufgeschrieben, wenn es auch eine Änderung gegeben hat. So ist es ersichtlicher was im Modell wirklich optimiert wurde und was nicht.
+Im Abbild \ref{fig:fig30} sind die neue Lösungen des optimierten Modells mit den Werten von dem zuvor erstelltem Modell zu sehen. Die Ergebnisse aus dem letzten Modell wurde nur dann aufgeschrieben, wenn es auch eine Änderung gegeben hat. So ist es ersichtlicher was im Modell wirklich optimiert wurde und was nicht. Eine Änderung der Leistungen des Modell wird deutlich durch die Abbildung \ref{fig:fig30}. Die zuvor im Evaluationsschritt ausgewählten Klassen die gute Leistung erbracht haben, werden zunächst im aktuellen Modell betrachten und verglichen. Um diese einfacher zu beschreiben listen wird die Differenzen der Leistungen der Klassen.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Klasse & Differenz Präzision & Differenz Trefferquote \\
+			\hline
+			Top  & 0 & 0\\
+			\hline
+			Trouser  & 0 & +1\%  \\
+			\hline
+			Pullover   & -1\% & +1\% \\
+			\hline
+			Dress   & +2\% & -2\% \\
+			\hline
+			Coat   & +3\% & -8\% \\
+			\hline
+			Sandal & +1\% & -1\% \\
+			\hline
+			Shirt & -2\% & +1\% \\
+			\hline
+			Sneaker & +1\% & -1\% \\
+			\hline
+			Bag & 0 & 0 \\
+			\hline
+			Ankle boot & -3\% & +1\% \\
+			\hline
+		\end{tabular}
+		\caption{Differenz neue und alte Ergebnisse}
+		\label{tab:differenz}
+	\end{center}
+\end{table}
+\newpage
+
+Durch die Tabelle \ref{tab:differenz} werden die Ergebnisse deutlicher beschrieben. Durch das Verhindern der Überanpassung wurde die Klassifikation im Modell für die Klassen angepasst. Da dieses Modell nur die Überanpassung bearbeitet hat ist auch demnach keine Verbesserung des Modell deutlich. Die Trefferquoten wurden bei den Klassen Trouser, Shirt und Pullover um $1\%$ verbessert. Die Klassen Coat und Dress haben sich im gegenzug verschlechtert. Leider wurde das Modell nicht gut optimiert, daher wäre die Empfehlung in diesem Fall, den sprung zur Modellierung \ref{model:ep3} zurück zu machen. 
 
 \subsection{Evaluation Experiment 3}\label{eval:eval3}
 
