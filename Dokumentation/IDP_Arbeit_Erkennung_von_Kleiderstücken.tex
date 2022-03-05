@@ -447,7 +447,7 @@ In dem Ausgangsdatensatz stellt jede Zeile mit seinen 784 Spalten, die wiederum 
 	
 \section{Modellierung}\label{model:model}
 	
-In diesem Schritt wird ein Maschinelles Lernalgorithmus erstellt und trainiert. Die Optimierung dieses Modells findet in einer bestimmte Reihenfolge statt. Zunächst wird ein Modell erstellt, welches Trainiert und mit den Validierungsdaten bewertet wird. Als nächstes wird das Modell im Schritt \ref{eval:eval} Evaluation evaluiert. Durch das Testen wird es möglich die neu implementierten Modell mit dem alten Modell zu vergleichen. Ist man mit den Ergebnissen nicht zufrieden oder das Zielergebniss wurde nicht erreicht, so springt man zur Phase \ref{model:model} Modelliereung zurück und versucht das Modell zu optimieren. Sollten die Zielergebnisse erreicht werden, so geht es mit dem schritt \ref{dp:dp} Deployment weiter.\\
+In diesem Schritt wird ein Maschinelles Lernalgorithmus erstellt und trainiert. Die Optimierung dieses Modells findet in einer bestimmte Reihenfolge statt. Zunächst wird ein Modell erstellt, welches trainiert und mit den Validierungsdaten bewertet wird. Als nächstes wird das Modell in Abschnitt \ref{eval:eval} evaluiert. Durch das Testen ist es möglich das neu implementierte Modell mit dem alten Modell zu vergleichen. Ist man mit den Ergebnissen nicht zufrieden oder das Zielergebnis wurde nicht erreicht, so springt man zur Phase \ref{model:model} Modelliereung zurück und versucht das Modell zu optimieren. Sollten die Zielergebnisse erreicht werden, so geht es mit dem Schritt \ref{dp:dp} Deployment weiter.\\
 \\
 Insgesamt werden drei verschiedene implementierte Modelle vorgestellt und im nächsten Abschnitt evaluiert. Jedes Modell bzw. Experiment beinhaltet dabei ein Convolutional Neuronal Network. Die Unterschiede der drei Modelle liegen dabei in den verwendeten Schichten und deren Zusammenspiel. 
 	
@@ -499,11 +499,11 @@ Die Ergebnisse zeigen, dass die erste Epoche eine Genauigkeit von $86,56\%$ erre
 	\label{fig:fig15}
 \end{figure}
 	
-In diesem Abbild wird die Verbesserung des Modells durchaus ersichtlicher. Es ist deutlich, dass sich die loss-Werte gegen null nähern, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche. Deutlich zu sehen sind die Sprünge der Linien bei den Validierungsmetriken. Eine Erklärung diesbezüglich ist die Überanpassung der Trainingsdaten im Modell, welches im nächsten Modellierungsschritt behandelt werden muss. Zunächst Evaluieren wir das aktuelle Modell im Kapitel \ref{eval:eval1}, damit ein Vergleich mit dem neuen Modell möglich ist.
+In diesem Abbild wird die Verbesserung des Modells durchaus ersichtlicher. Es ist deutlich, dass sich die loss-Werte gegen null nähern, währenddessen die Genauigkeit sich erhöht. Somit wird das Modell immer weiter optimiert bis zur letzten Epoche. Deutlich zu sehen sind die Sprünge der Linien bei den Validierungsmetriken. Eine Erklärung dafür ist die Überanpassung an die Trainingsdaten des Modells, was im nächsten Modellierungsschritt behandelt werden muss. Zunächst wird das aktuelle Modell im Kapitel \ref{eval:eval1} evaluiert, damit ein Vergleich mit dem neuen Modell möglich ist.
 	
 \subsection{Experiment 2}\label{model:ep2}
 	
-In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und weiter verbessert. Das Ziel ist zunächst die Reduzierung der Differenz von $val\_accuracy$ und $accuracy$, damit das Modell genauere Ergebnisse liefern kann. Dafür wird die Dropout Schicht verwendet, welche die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer \cite{tensorflow2022}.\\
+In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und weiter verbessert. Das Ziel ist zunächst die Reduzierung der Differenz von $val\_accuracy$ und $accuracy$, damit das Modell genauere Ergebnisse liefern kann. Dafür wird die Dropout Schicht verwendet, welche die Daten eliminiert, die zu einer Überanpassung des Modells führen. In diesem Layer werden Datensatze die mit einer Häufigkeit von rate auftreten, auf 0 gesetzt. Dabei ist rate der Parameter von dem Dropout Layer und gibt die Häufigkeit der zu entfernenden Inputs an \cite{tensorflow2022}.\\
 
 \begin{itemize}
 	\item Convolutional Layer (Conv2D)
@@ -531,36 +531,35 @@ Es wird deutlich, dass die Genauigkeit der Trainingsdaten, mit der Genauigkeit d
 	\label{fig:fig28}
 \end{figure}
 
-Im diesem Schritt wurde das Modell so optimiert, dass die Überanpassung verhindert werden kann. Durch den Graphen im Abbild \ref{fig:fig28} stellen wir fest, dass die Genauigkeiten der Validierungs- und Trainingsdaten konvergieren. Dir großen Sprünge im Graphen wurden genauso beseitigt. Dazu ist die Differenz der Genauigkeiten von $2\%$ auf $0.38\%$ gesunken. Als nächstes wird das Modell mit dem Testdaten getestet, welches im \ref{eval:eval2} Evaluation des zweiten Modells erarbeitet wurde.
+Im diesem Schritt wurde das Modell so optimiert, dass die Überanpassung verhindert werden kann. Durch den Graphen im Abbild \ref{fig:fig28} ist ersichtlich, dass die Genauigkeiten der Validierungs- und Trainingsdaten konvergieren. Die großen Sprünge im Graphen wurden genauso beseitigt. Dazu ist die Differenz der Genauigkeiten von $2\%$ auf $0.38\%$ gesunken. Als nächstes wird das Modell mit den Testdaten getestet, was in Abschnitt \ref{eval:eval2} bearbeitet wird.
 
 \subsection{Experiment 3}\label{model:ep3}
 
-In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurde bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten nicht Merkmale verdoppelt an die nächste Schritt übergeben wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichte verdoppelt wurden, muss zunächst die Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht. Im folgenden Abbild \ref{fig:fig17} ist die Darstellung des geänderten Modell.
+In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gelegt. Es wurden bisher zwei Modelle erstellt, die bezüglich der Leistung  fast identisch sind. In diesem Schritt ist das Ziel, die Leistung des Modells zu erhöhen. Dabei werden mehrere Schichten hinzugefügt oder geändert. Zunächst werden alle Conv2D Schichten verdoppelt, um mehrere Merkmale extrahieren zu können. Damit die verdoppelten Conv2D Schichten die Merkmale nicht verdoppelt an die nächste Schritt übergeben, wird der Dropout Parameter (rate) reduziert. Da unsere Conv2D Schichten verdoppelt wurden, muss zunächst der Fully-Connected-Layer vergrößert werden. Als Parameter wird in dieser Schicht die Neuronen-Anzahl drastisch erhöht.
 
 \subsubsection{Trainingsphase}
 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=14cm,height=14cm]		{ExperimentModelTrainingsphase_3.png}
+	\includegraphics[width=12cm,height=13.5cm]		{ExperimentModelTrainingsphase_3.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig31}
 \end{figure}
 
-Während der Trainingsphase erreicht das Modell eine Genauigkeit von maximal $95.31\%$ was ein Erhöhung der Leistung des Modells darstellt. Der tatsächlicher Wert wird in der \ref{eval:eval3} Evaluierung berechnet.
-
+Während der Trainingsphase erreicht das Modell eine Genauigkeit von maximal $95.31\%$ was eine Erhöhung der Leistung des Modells darstellt. Die Evaluierung mit den Testdaten erfolgt in Abschnitt \ref{eval:eval3}.
 
 \section{Evaluation}\label{eval:eval}
 
-Die definierten Modelle, werden nun im Evaluationsschritt getestet. Für das Testen wird hier der Testdaten eingesetzt.
+Die definierten Modelle, werden nun im Evaluationsschritt getestet. Für das Testen wird hier der Testdatensatz eingesetzt.
 
 \subsection{Evaluation Experiment 1}\label{eval:eval1}
 
-Das Modell zur Experiment 1 wurde bisher trainiert und sollte als nächstes getestet werden. Hierzu übergeben wir die Testdaten dem Modell und beginnen mit dem Testen. Uns ist aus den Trainingsphase bekannt das, dass Modell eine Genauigkeit von $91\%$ hat und während der Testphase dies liefern sollte. Bei der Evaluation wird für jede Klasse die Präzision und Trefferquote berechnet. Somit kann für jede Klasse eine Bewertung stattfinden.
+Das Modell aus Experiment 1 wurde bisher trainiert und sollte als nächstes getestet werden. Hierzu werden dem Modell die Testdaten übergeben. Aus der Trainingsphase ist bekannt dass, das Modell eine Genauigkeit von $91\%$ hat. Bei der Evaluation wird für jede Klasse die Präzision und Trefferquote berechnet. Somit kann für jede Klasse eine Bewertung stattfinden.
 
 \subsubsection{Testphase}
 
-Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit und Verlust berechnet werden. Das aktuelle Modell bring eine Leistung von $91.96\%$ durchschnittliche Genauigkeit und $23.17\%$ durchschnittliche Verlust über alle Klassen. \\
+Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit und der Verlust berechnet werden. Das aktuelle Modell erreicht eine durchschnittliche Genauigkeit von $91.96\%$ einen durchschnittlichen Verlust von $23.17\%$  über alle Klassen. \\
 
 \begin{figure}[h!]
 	\centering
@@ -569,11 +568,11 @@ Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit u
 	\label{fig:fig18}
 \end{figure}
 
-Das Modell erzielt bei jeder Klasse unterschiedliche Präzision und Trefferquote, dabei werden die Klassen, wie zum Beispiel die Bag, Sandal, Ankle Boot, Dress, Sneaker und Trouser mit Präzision von $95\%$ bis $99\%$ prognostiziert. Die Trefferquote zu diesen Klassen sind im Bereich von $92\%$ bis $98\%$. Somit stellt das Modell für diese Klassen eine gute Leistung dar. Als nächstes werden die Klassen ausgewählt die schlechte Leistungen in dem aktuellen Modell erbringen. Die Klassen Shirt, Coat und Top haben eine Präzision von $83\%$ bis $86\%$ und deren Trefferquote liegt zwischen $69\%$ bis $92\%$, dabei hat die Klassen Coat eine höhere Trefferquote ($92\%$)  als seine Präzision ($86\%$). Aufgrund der Überanpassung im Modell, welches durch die Trainingsphase entdeckt wurde, muss zunächst das Modell im nächsten Schritt \ref{model:ep2} Experiment 2 optimiert werden.
+Das Modell erzielt für jede Klasse eine unterschiedliche Präzision und Trefferquote. Dabei werden die Klassen, wie zum Beispiel Bag, Sandal, Ankle Boot, Dress, Sneaker und Trouser mit einer Präzision von $95\%$ bis $99\%$ prognostiziert. Die Trefferquoten zu diesen Klassen liegen im Bereich von $92\%$ bis $98\%$. Somit erreicht das Modell für diese Klassen eine gute Leistung. Als nächstes werden die Klassen ausgewählt, für die eine schlechte Leistung in dem aktuellen Modell erbracht wurde. Die Klassen Shirt, Coat und Top haben eine Präzision von $83\%$ bis $86\%$ und deren Trefferquote liegt zwischen $69\%$ bis $92\%$. Dabei hat die Klasse Coat eine höhere Trefferquote ($92\%$)  als seine Präzision ($86\%$). Aufgrund der Überanpassung im Modell, welche durch die Trainingsphase entdeckt wurde, muss zunächst das Modell im nächsten Schritt \ref{model:ep2} optimiert werden.
 
 \subsection{Evaluation Experiment 2}\label{eval:eval2}
 
-Bisher wurde das Experiment 2 erstellt und es sollten keine Überanpassungen mehr stattfinden. Mit diesem Schritt Testen wir das optimierte Modell neu, um Änderungen bei den Metriken zu erkennen.
+Bisher wurde das zweite Experiment erstellt und es sollten durch die Anwendung der Dropout Schicht keine Überanpassungen mehr stattfinden. Mit diesem Schritt wird das optimierte Modell neu getestet, um Änderungen bei den Metriken zu erkennen.
 \subsubsection{Testphase}
 
 \begin{figure}[h!]
@@ -583,7 +582,7 @@ Bisher wurde das Experiment 2 erstellt und es sollten keine Überanpassungen meh
 	\label{fig:fig30}
 \end{figure}
 
-Im Abbild \ref{fig:fig30} sind die neue Lösungen des optimierten Modells mit den Werten von dem zuvor erstelltem Modell zu sehen. Die Ergebnisse aus dem letzten Modell wurde nur dann aufgeschrieben, wenn es auch eine Änderung gegeben hat. So ist es ersichtlicher was im Modell wirklich optimiert wurde und was nicht. Eine Änderung der Leistungen des Modell wird deutlich durch die Abbildung \ref{fig:fig30}. Die zuvor im Evaluationsschritt ausgewählten Klassen die gute Leistung erbracht haben, werden zunächst im aktuellen Modell betrachten und verglichen. Um diese einfacher zu beschreiben listen wird die Differenzen der Leistungen der Klassen.
+Im Abbild \ref{fig:fig30} sind die Lösungen des optimierten Modells mit den Werten von dem zuvor erstellten Modell zu sehen. Die Ergebnisse aus dem letzten Modell wurden nur dann übertragen, wenn es auch eine Änderung gegeben hat. So ist ersichtlicher, was im Modell wirklich optimiert wurde und was nicht. Eine Änderung der Leistungen des Modells wird deutlich durch die Abbildung \ref{fig:fig30}. Die zuvor im Evaluationsschritt ausgewählten Klassen, für die gute Ergebnisse erzielt wurden, werden zunächst im aktuellen Modell betrachtet und verglichen. Um diese einfacher zu beschreiben, werden die Differenzen der einzelnen Leistungen aufgelistet.\\
 
 \begin{table}[h!]
 	\begin{center}
@@ -617,11 +616,11 @@ Im Abbild \ref{fig:fig30} sind die neue Lösungen des optimierten Modells mit de
 	\end{center}
 \end{table}
 
-Durch die Tabelle \ref{tab:differenz} werden die Ergebnisse deutlicher beschrieben. Durch das Verhindern der Überanpassung wurde die Klassifikation im Modell für die Klassen angepasst. Da dieses Modell nur die Überanpassung bearbeitet hat ist auch demnach keine Verbesserung des Modell deutlich. Die Trefferquoten wurden bei den Klassen Trouser, Shirt und Pullover um $1\%$ verbessert. Die Klassen Coat und Dress haben sich im gegenzug verschlechtert. Leider wurde das Modell nicht gut optimiert, daher wäre die Empfehlung in diesem Fall, den sprung zur Modellierung \ref{model:ep3} zurück zu machen. 
+Durch die Tabelle \ref{tab:differenz} werden die Ergebnisse deutlicher beschrieben. Da dieses Modell nur die Überanpassung bearbeitet hat, ist auch demnach keine Verbesserung des Modells ersichtlich. Die Trefferquoten wurden bei den Klassen Trouser, Shirt und Pullover um $1\%$ verbessert. Die Vorhersage für die Klassen Coat und Dress haben sich im Gegenzug verschlechtert. Da das Modell bisher nicht optimiert wurde, wäre die Empfehlung in diesem Fall, den Sprung zur Modellierung \ref{model:ep3} zurück zu machen. 
 
 \subsection{Evaluation Experiment 3}\label{eval:eval3}
 
-Durch die Modellierung wurde das Modell im dritten Anlauf noch einmal optimiert. Dies wird in den nächsten Schritten näher betrachtet und ein verglich zum alten Modell und eine Tabelle der Differenz der Ergebnisse darstellt erstellt. Die durchschnittliche Genauigkeit wurde in diesem Modell mit $92.97\%$ und der durchschnittlicher Verlust $21.09\%$ berechnet.
+Durch das dritte Experiment wurde das Modell noch einmal optimiert. Dies wird in den nächsten Schritten näher betrachtet und es wird ein Vergleich zum alten Modell anhand einer Tabelle erstellt, die die Differenz der Ergebnisse darstellt. Die durchschnittliche Genauigkeit beträgt für dieses Modell $92.97\%$ und der durchschnittlicher Verlust $21.09\%$.
 
 \begin{figure}[h!]
 	\centering
@@ -630,7 +629,7 @@ Durch die Modellierung wurde das Modell im dritten Anlauf noch einmal optimiert.
 	\label{fig:fig20}
 \end{figure}
 
-Im Abbild \ref{fig:fig20} werden die Klassen mit ihren Ergebnissen aus dem letzten Modell und dem aktuellen Modell dargestellt. Wenn die Klassen den Eintrag des letzten Modells nicht beinhaltet, wird heraus gefolgert, dass diese keine Änderung an seine Ergebnisse hatte. Im nächsten Schritt werden diese änderungen im detai betrachtet, indem die Differenz der Ergebnisse berechnet wird und als Tabelle dargstellten wird. Ein Beispiel dazu ist die darauffolgende Tabelle \ref{tab:differenz2}.
+Im Abbild \ref{fig:fig20} werden die Klassen mit den erzielten Ergebnissen aus dem letzten Modell und den Ergebnissen aus dem aktuellen Modell dargestellt. Wenn die Ergebnisse des letzten Modells nicht aufgeführt sind, bedeutet das, dass die Leistung der Vorhersagen sich für diese Klassen nicht verändert hat. Im nächsten Schritt werden diese Änderungen im Detail betrachtet, indem die Differenz der Ergebnisse berechnet und in einer Tabelle dargestellt wird. Ein Beispiel dazu zeigt die folgende Tabelle \ref{tab:differenz2}.
 
 \begin{table}[h!]
 	\begin{center}
@@ -664,13 +663,46 @@ Im Abbild \ref{fig:fig20} werden die Klassen mit ihren Ergebnissen aus dem letzt
 	\end{center}
 \end{table}
 
-TODO:änderungen erläutern verbesserungen erwähnen
+- positive änderungen 
+
+- was sagen die trefferquoten gesamt aus und wie gut schneidet es i, vergleich zum alten modell
+
+-sind diese ergebnisse das Ziel das Projekts
 
 
 \section{Deployment}\label{dp:dp}
 
+Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden können, kann man zum Beispiel das Modell aus dem dritten Experiment cloud-basiert als Service bereitstellen. Eine mögliche Zielgruppe ist vor allem der Bereich Online-Retail. Dazu könnte für die Verwendung des Services, durch die Mitarbeiter eines Unternehmens, eine Benutzeroberfläche erstellt werden um dann eigene Bilddaten zu importieren und danach an den Service weiterzugeben. Dies könnte zum Beispiel bei der automatischen Generierung von Bildbeschreibungen unterstützen. Ein weiterer möglicher Anwendungsfall wäre, wenn die Bilddaten aus einem Kamerasensor stammen und diese durch den Service automatisch klassifiziert werden. Diese Klassifizierung kann dann, wie anfangs in der Problemstellung beschrieben, bei Retouren das automatische Labeln der Waren ermöglichen. 
+
 \newpage
 \chapter{Zusammenfassung und Ausblick}
+
+- zusammenfassung und vergleich aus ein model im internet
+
+
+
+
+
+
+- ausblick zu verbesserung und nutzbarkeit des Modells
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \cleardoubleoddpage
