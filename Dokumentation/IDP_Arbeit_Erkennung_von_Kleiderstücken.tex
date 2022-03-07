@@ -105,7 +105,7 @@ Im folgenden Abschnitt werden die Bestandteile von künstlichen Neuronalen Netze
 
 \subsection{Neuronales Netz}\label{chapter:NeuronalesNetz}
 	
-Auf der linken Seite der Abbildung \ref{fig:fig2}, befinden sich die Eingabedaten die als $x_{0}, x_{1}, ..., x_{n} \in{\vec{X}}$  definiert sind, wobei $\vec{X}$ den Vektor $\mathbb{R}^n$ darstellt. Jede einzelnen Eingabe $x_{0}, x_{1},...,x_{n}$ wird mit seinem Gewicht $w_{n,j}$ multipliziert, wobei $j \in{[0,Anzahl Neuronen]}$ gilt. Nachdem multiplizieren mit den Gewichten werden alle berechneten Werte an die Übertragungsfunktion übergeben. Dieser Ablauf ist dabei an eine echte Nervenzelle angelehnt, indem Neuronen aus anderen Nervenzellen, dieses Neuron anregen und auf diese übertragen können. Die Übertragungsfunktion summiert diese Werte zusammen und leitet sie dann an die Aktivierungsfunktion weiter. Die Aktivierungsfunktion beinhaltet genauso ein Schwellenpotenzial mit der wir auch Schwellenwerte prüfen können. Eine einfache Aktivierungsfunktion wäre hierbei das Alles-oder-nichts-Prinzip. Mit diesem Prinzip ist gemeint, dass bei Überschreitungen des Schwellwertes das Neuron aktiviert und unterhalb des Schwellwertes inaktiv gestellt wird \cite{Frochte2021}(S.169).
+Auf der linken Seite der Abbildung \ref{fig:fig2}, befinden sich die Eingabedaten die als $x_{0}, x_{1}, ..., x_{n} \in{\vec{X}}$  definiert sind, wobei $\vec{X}$ den Vektor $\mathbb{R}^n$ darstellt. Jede einzelnen Eingabe $x_{0}, x_{1},...,x_{n}$ wird mit seinem Gewicht $w_{n,j}$ multipliziert, wobei $j \in{[0,Anzahl Neuronen]}$ gilt. Nachdem multiplizieren mit den Gewichten werden alle berechneten Werte an die Übertragungsfunktion übergeben. Dieser Ablauf ist dabei an eine echte Nervenzelle angelehnt, indem Neuronen aus anderen Nervenzellen, dieses Neuron anregen und auf diese übertragen können. Die Übertragungsfunktion summiert diese Werte zusammen und leitet sie dann an die Aktivierungsfunktion weiter. Die Aktivierungsfunktion beinhaltet genauso ein Schwellenpotenzial mit der wir auch Schwellenwerte prüfen können. Eine einfache Aktivierungsfunktion wäre hierbei das Alles-oder-nichts-Prinzip. Mit diesem Prinzip ist gemeint, dass bei Überschreitungen des Schwellwertes das Neuron aktiviert und unterhalb des Schwellwertes inaktiv gestellt wird \cite{Frochte2021}(S.169). \\
 	
 \begin{figure}[h!]
 	\centering
@@ -113,7 +113,6 @@ Auf der linken Seite der Abbildung \ref{fig:fig2}, befinden sich die Eingabedate
 	\caption{Modell eines Neurons \cite{Abbildung2}}
 	\label{fig:fig2}
 \end{figure}
-\newpage
 	
 Zunächst ist wichtig wie die Vernetzungen und Verknüpfungen der Neuronen aussehen und funktionieren. In Abbildung \ref{fig:fig3} wird deutlich, dass ein einfaches Künstliches Neuronales Netz aus drei Schichten besteht. Die erste Schicht ist dabei die Eingabeschicht (engl. Inputlayer), die die Eingabe der Daten verarbeitet und wiederum mit jedem Neuron aus der verborgenen Schicht (engl.= Hiddenlayer) vernetzt ist. Durch die Ausgabeschicht werden Regeln, die aus der verborgenen Schicht extrahiert werden, bereitgestellt. Diese Neuronen werden zur Evaluation des Modells benutzt \cite{Frochte2021}(S.169).
 	
@@ -268,7 +267,7 @@ Bei einem CNN, im Deutschen "gefaltetes Neuronales Netzwerk", handelt es sich vo
 	\label{fig:fig5}
 \end{figure}
 
-In Abbildung \ref{fig:fig5} sind mehrere Schichten (Layer) zu sehen. Dabei ist die Eingabeschicht (Inputlayer) und die Ausgabeschicht (Outputlayer) bekannt. Wie im vorherigen Abschnitt auch definiert, hat ein CNN mehrere verborgene Schichten, darunter den \textbf{Convolutional Layer}, der einzelne Merkmale aus den Eingabedaten ortsunabhängig erkennt und daraufhin diese extrahiert. Diese Merkmale könnten bei einer Bildverarbeitung den Kanten, Linienformen, Farbtupfer und Faltung entsprechen, die eine Struktur darstellen. Ein Beispiel dazu wird im folgenden Abbild dargestellt.
+In Abbildung \ref{fig:fig5} sind mehrere Schichten (Layer) zu sehen. Dabei ist die Eingabeschicht (Inputlayer) und die Ausgabeschicht (Outputlayer) bekannt. Wie im vorherigen Abschnitt auch definiert, hat ein CNN mehrere verborgene Schichten, darunter den \textbf{Convolutional Layer}, der einzelne Merkmale aus den Eingabedaten ortsunabhängig erkennt und daraufhin diese extrahiert. Diese Merkmale könnten bei einer Bildverarbeitung den Kanten, Linienformen, Farbtupfer und Faltung entsprechen, die eine Struktur darstellen. Ein Beispiel dazu wird im folgenden Abbild dargestellt.\\
 
 Diese Merkmale werden in der \textbf{Pooling-Schicht}, auch als Subsampling bekannt, bearbeitet, indem die Auflösung der Merkmale reduziert und verdichtet wird. Die Pooling-Schicht enthält keine Modellparameter, weshalb das Modell durch diese Schicht nicht wirklich lernt. Somit werden überflüssige Informationen verworfen, wodurch die Datenmenge reduziert wird. Dadurch wird die Berechnungsgeschwindigkeit erhöht. Diese zwei Schichten können so oft wie möglich verwendet werden, da sie nur Merkmale aus den Bilder extrahieren und optimierend zu Verfügung stehen. Die eigentliche Klassifikation entsteht durch den \textbf{Fully-Connected Layer}, im Deutschen "vollständig verknüpfte Schicht", der sich der wiederholten Abfolge der Convolutional- und Pooling-Schichten anschließt, indem alle Merkmale der vorgelagerten Schichten mit jedem Ausgabemerkmal verknüpft sind. Somit werden mögliche Kombinationen aus den Strukturen entworfen, die komplexere Strukturen identifizieren lassen. Wichtig ist hierbei, dass die Anzahl an Neuronen in der vollständig vernetzten Schicht abhängig von den Klassen oder Objekten sind \cite{Luber2019}. 
 	
@@ -663,13 +662,9 @@ Im Abbild \ref{fig:fig20} werden die Klassen mit den erzielten Ergebnissen aus d
 	\end{center}
 \end{table}
 
-- positive änderungen 
+Durch die Tabelle ist es bemerkbar das sich das Modell in fast alle Klassen sich verbessert hat. Zunächst werden die Trefferquoten beschrieben, da diese zu Bewertung der einzeln Klassen sich besser eignen. Eine sehr Größe Änderung ist bei der Klasse Coat bemerkbar, diese hat sich um $10\%$ erhöht. Es werden die Klassen betrachte die im Experiment 1, die für eine schlechte Leistung erbracht hatten. Eines diese Klasse war die Coat klasse die wie auch zuvor erwähnte verbessert wurde. Die Klasse Top und Shirt haben sich in der Präzision verbessert, wobei die Klasse Shirt auch eine Verbesserung bezügliche der Trefferquote. Die einzigen Verschlechterungen sind in den Klassen Coat und Sandal, wobei Sandal sich in der Trefferquote verschlechtert und die Coat in der Präzision. Keine Änderungen sind in der Klasse Bag zu sehen. Im Abbild \ref{fig:fig20} wird es auch ersichtlich das die Klasse Trouser eine $100\%$ Trefferquote und Sandal eine $100\%$ Präzision erzielt. Das Modell erzielt nun viel besser Lösungen und kann somit genutzt werden. Weiterhin ist es möglich durch die Anwendung des Schrittes Modellierung das Modell weiter zu optimieren. Wir setze diese Modell als das Zielmodell und vergleichen diese im späteren Abschnitt mit anderen Modellen aus dem Internet.
 
-- was sagen die trefferquoten gesamt aus und wie gut schneidet es i, vergleich zum alten modell
-
--sind diese ergebnisse das Ziel das Projekts
-
-
+\newpage
 \section{Deployment}\label{dp:dp}
 
 Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden können, kann man zum Beispiel das Modell aus dem dritten Experiment cloud-basiert als Service bereitstellen. Eine mögliche Zielgruppe ist vor allem der Bereich Online-Retail. Dazu könnte für die Verwendung des Services, durch die Mitarbeiter eines Unternehmens, eine Benutzeroberfläche erstellt werden um dann eigene Bilddaten zu importieren und danach an den Service weiterzugeben. Dies könnte zum Beispiel bei der automatischen Generierung von Bildbeschreibungen unterstützen. Ein weiterer möglicher Anwendungsfall wäre, wenn die Bilddaten aus einem Kamerasensor stammen und diese durch den Service automatisch klassifiziert werden. Diese Klassifizierung kann dann, wie anfangs in der Problemstellung beschrieben, bei Retouren das automatische Labeln der Waren ermöglichen. 
@@ -677,34 +672,13 @@ Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden
 \newpage
 \chapter{Zusammenfassung und Ausblick}
 
-- zusammenfassung und vergleich aus ein model im internet
+
+Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert und evaluiert. Während dem optimieren sind Problem wie zum Beispiel Überanpassung entstanden, welches verhindert werden sollte um genauere Ergebnisse aus dem Modell zu erzielen. Diesbezüglich wurde die Tensorflow Framework für Python benutzt. Dabei Liefert das Framework einige Schicht die es erleichtern das Modell zu erstellen und zu optimieren. Ein Beispiel dazu sind die Conv2D-, Dense-, Flatten-, Dropout-Layer. Nun wird versucht ein Modell aus dem Internet mit diesem Modell zu vergleichen.\\
+
+todo :Vergleich\\
 
 
-
-
-
-
-- ausblick zu verbesserung und nutzbarkeit des Modells
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Es stellt sich die Frage wie dieses Neuronale Netz weiterhin verbessert werden und eventuell andere Problemstellungen lösen kann. Bisher waren die Eingabedaten Graustufenbilder, die eine Auflösung von $28*28$ Pixel haben. Wird davon ausgegangen das die Eingabedaten nicht nur Topansichten beinhalten, sondern auch andere Sichtweise, wie zum Beispiel ein Foto mit dem Smartphone mit Farbtöne. So kann man das Neuronale Netz erweitern um mit diesen Eingabedaten eine Klassifizierung zu führen. Somit kann dann das Neuronale Netz auch Bilder Klassifizieren die mit einem Smartphone gemacht sind. Dadurch könnte das Service soweit erweitert werden, dass es nicht nur im Online-Retail genutzt werden kann, sondern auch in verschiedentliche Bereiche. Ein Beispiel dazu könnte das Rücksenden der Bestellten Ware vom Kunden sein. Es ist bekannt das Käufer bei Rücksendungen die Artikel, welche zurück geliefert werden sollen, auf einem Papier vermerken muss. Hierzu bietet das Neuronale Netz eine Automatisierung, indem der Käufer ein Bild von diese Ware hochlädt und diese automatisch klassifiziert wird. Somit hat man nicht nur den Bereich Online-Retail, sondern könnten es überall anwenden, wo es um Retouren geht.
 \cleardoubleoddpage
 
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
