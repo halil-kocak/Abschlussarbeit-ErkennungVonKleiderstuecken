@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{hyperref}
+\usepackage{url}
 
 \begin{document}
 	
@@ -541,7 +542,7 @@ In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gel
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=12cm,height=13.5cm]		{ExperimentModelTrainingsphase_3.png}
+	\includegraphics[width=13cm,height=15cm]		{ExperimentModelTrainingsphase_3.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig31}
 \end{figure}
@@ -662,7 +663,7 @@ Im Abbild \ref{fig:fig20} werden die Klassen mit den erzielten Ergebnissen aus d
 	\end{center}
 \end{table}
 
-Durch die Tabelle ist es bemerkbar das sich das Modell in fast alle Klassen sich verbessert hat. Zunächst werden die Trefferquoten beschrieben, da diese zu Bewertung der einzeln Klassen sich besser eignen. Eine sehr Größe Änderung ist bei der Klasse Coat bemerkbar, diese hat sich um $10\%$ erhöht. Es werden die Klassen betrachte die im Experiment 1, die für eine schlechte Leistung erbracht hatten. Eines diese Klasse war die Coat klasse die wie auch zuvor erwähnte verbessert wurde. Die Klasse Top und Shirt haben sich in der Präzision verbessert, wobei die Klasse Shirt auch eine Verbesserung bezügliche der Trefferquote. Die einzigen Verschlechterungen sind in den Klassen Coat und Sandal, wobei Sandal sich in der Trefferquote verschlechtert und die Coat in der Präzision. Keine Änderungen sind in der Klasse Bag zu sehen. Im Abbild \ref{fig:fig20} wird es auch ersichtlich das die Klasse Trouser eine $100\%$ Trefferquote und Sandal eine $100\%$ Präzision erzielt. Das Modell erzielt nun viel besser Lösungen und kann somit genutzt werden. Weiterhin ist es möglich durch die Anwendung des Schrittes Modellierung das Modell weiter zu optimieren. Wir setze diese Modell als das Zielmodell und vergleichen diese im späteren Abschnitt mit anderen Modellen aus dem Internet.
+Durch die Tabelle ist es bemerkbar das sich das Modell in fast alle Klassen sich verbessert hat. Zunächst werden die Trefferquoten beschrieben, da diese zu Bewertung der einzeln Klassen sich besser eignen. Eine sehr Größe Änderung ist bei der Klasse Coat bemerkbar, diese hat sich um $10\%$ erhöht. Es werden die Klassen betrachte die im Experiment 1, die für eine schlechte Leistung erbracht hatten. Eines diese Klasse war die Coat klasse die wie auch zuvor erwähnte verbessert wurde. Die Klasse Top und Shirt haben sich in der Präzision verbessert, wobei die Klasse Shirt auch eine Verbesserung bezügliche der Trefferquote. Die einzigen Verschlechterungen sind in den Klassen Coat und Sandal, wobei Sandal sich in der Trefferquote verschlechtert und die Coat in der Präzision. Keine Änderungen sind in der Klasse Bag zu sehen. Im Abbild \ref{fig:fig20} wird es auch ersichtlich das die Klasse Trouser eine $100\%$ Trefferquote und Sandal eine $100\%$ Präzision erzielt. Das Modell erzielt nun viel besser Lösungen und kann somit genutzt werden. Weiterhin ist es möglich durch die Anwendung des Schrittes Modellierung, das Modell weiter zu optimieren. Wir setze diese Modell als das Zielmodell und vergleichen diese im späteren Abschnitt \ref{zsm:zsm} mit anderen Modellen aus dem Internet.
 
 \newpage
 \section{Deployment}\label{dp:dp}
@@ -670,13 +671,27 @@ Durch die Tabelle ist es bemerkbar das sich das Modell in fast alle Klassen sich
 Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden können, kann man zum Beispiel das Modell aus dem dritten Experiment cloud-basiert als Service bereitstellen. Eine mögliche Zielgruppe ist vor allem der Bereich Online-Retail. Dazu könnte für die Verwendung des Services, durch die Mitarbeiter eines Unternehmens, eine Benutzeroberfläche erstellt werden um dann eigene Bilddaten zu importieren und danach an den Service weiterzugeben. Dies könnte zum Beispiel bei der automatischen Generierung von Bildbeschreibungen unterstützen. Ein weiterer möglicher Anwendungsfall wäre, wenn die Bilddaten aus einem Kamerasensor stammen und diese durch den Service automatisch klassifiziert werden. Diese Klassifizierung kann dann, wie anfangs in der Problemstellung beschrieben, bei Retouren das automatische Labeln der Waren ermöglichen. 
 
 \newpage
-\chapter{Zusammenfassung und Ausblick}
+\chapter{Zusammenfassung und Ausblick}\label{zsm:zsm}
 
 
-Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert und evaluiert. Während dem optimieren sind Problem wie zum Beispiel Überanpassung entstanden, welches verhindert werden sollte um genauere Ergebnisse aus dem Modell zu erzielen. Diesbezüglich wurde die Tensorflow Framework für Python benutzt. Dabei Liefert das Framework einige Schicht die es erleichtern das Modell zu erstellen und zu optimieren. Ein Beispiel dazu sind die Conv2D-, Dense-, Flatten-, Dropout-Layer. Nun wird versucht ein Modell aus dem Internet mit diesem Modell zu vergleichen.\\
+Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert und evaluiert. Während dem optimieren sind Problem wie zum Beispiel Überanpassung entstanden, welches verhindert werden sollte um genauere Ergebnisse aus dem Modell zu erzielen. Diesbezüglich wurde die Tensorflow Framework für Python benutzt. Dabei Liefert das Framework einige Schicht die es erleichtern das Modell zu erstellen und zu optimieren. Ein Beispiel dazu sind die Conv2D-, Dense-, Flatten-, Dropout-Layer. Nun wird versucht ein Modell aus dem Internet mit diesem Modell zu vergleichen. Diesbezüglich betrachten wir das Modell von Chinmay Rane, welches auf Kaggle auf der Seite \url{https://www.kaggle.com/fuzzywizard/fashion-mnist-cnn-keras-accuracy-93} aufzufinden ist. Das Modell von Chinmay Rane wird wie folgt definiert. 
 
-todo :Vergleich\\
+\begin{itemize}
+	\item Convolutional Layer (Conv2D) (Feature-Extraktor)
+	\item BatchNormalization (Feature-Extraktor)
+	\item Dropout (Feature-Extraktor)
+	\item Flatten Layer (Flatten)
+	\item Fully-Connected Layer (Dense)
+	\item BatchNormalization
+	\item Dropout
+	\item Fully-Connected Layer (Dense)
+	\item BatchNormalization
+	\item Dropout
+	\item Output Layer (Dense)
+	\label{tab:modelvonChinmayRane}
+\end{itemize}
 
+Dabei wird die Feature Extraktion drei mal Angewendet. Die Schicht BatchNormalization wird statt unseren MaxPooling Layer im Modell benützt. 
 
 Es stellt sich die Frage wie dieses Neuronale Netz weiterhin verbessert werden und eventuell andere Problemstellungen lösen kann. Bisher waren die Eingabedaten Graustufenbilder, die eine Auflösung von $28*28$ Pixel haben. Wird davon ausgegangen das die Eingabedaten nicht nur Topansichten beinhalten, sondern auch andere Sichtweise, wie zum Beispiel ein Foto mit dem Smartphone mit Farbtöne. So kann man das Neuronale Netz erweitern um mit diesen Eingabedaten eine Klassifizierung zu führen. Somit kann dann das Neuronale Netz auch Bilder Klassifizieren die mit einem Smartphone gemacht sind. Dadurch könnte das Service soweit erweitert werden, dass es nicht nur im Online-Retail genutzt werden kann, sondern auch in verschiedentliche Bereiche. Ein Beispiel dazu könnte das Rücksenden der Bestellten Ware vom Kunden sein. Es ist bekannt das Käufer bei Rücksendungen die Artikel, welche zurück geliefert werden sollen, auf einem Papier vermerken muss. Hierzu bietet das Neuronale Netz eine Automatisierung, indem der Käufer ein Bild von diese Ware hochlädt und diese automatisch klassifiziert wird. Somit hat man nicht nur den Bereich Online-Retail, sondern könnten es überall anwenden, wo es um Retouren geht.
 \cleardoubleoddpage
