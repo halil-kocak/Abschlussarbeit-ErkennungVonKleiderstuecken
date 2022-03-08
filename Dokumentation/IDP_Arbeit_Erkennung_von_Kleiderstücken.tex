@@ -119,7 +119,7 @@ Zunächst ist wichtig wie die Vernetzungen und Verknüpfungen der Neuronen ausse
 	
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=8.5cm,height=6cm]{Abbildung_NeuronaleNetze_2.jpg}
+	\includegraphics[width=8cm,height=6cm]{Abbildung_NeuronaleNetze_2.jpg}
 	\caption{Schichten der Künstliche Neuronale Netze \cite{Abbildung3}}
 	\label{fig:fig3}
 \end{figure}
@@ -245,31 +245,28 @@ Bei Deep Learning handelt es sich um eine Teilmenge der Maschinellen Lernalgorit
 	$sig(t) = \frac{1}{(1 + e^-t)}$\\
 \end{center}
 
-,wobei $sig(t) \in [0,1]$ und $ t \in \mathbb{R}$ gilt. 
-\\
-
-Dies bedeutet, dass die Neuronen immer eine Zahl übertragen bekommen, die zwischen 0 und 1 liegt. Somit können durch Implementierungen Schwellenwerte definiert und dementsprechend Neuronen aktiviert oder deaktiviert werden \cite{Frochte2021}(S.178). \\
+,wobei $sig(t) \in [0,1]$ und $ t \in \mathbb{R}$ gilt. Dies bedeutet, dass die Neuronen immer eine Zahl übertragen bekommen, die zwischen 0 und 1 liegt. Somit können durch Implementierungen Schwellenwerte definiert und dementsprechend Neuronen aktiviert oder deaktiviert werden \cite{Frochte2021}(S.178). \\
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13cm,height=7cm]		{Abbildung_DeepLearning_1.jpg}
+	\includegraphics[width=10cm,height=5cm]		{Abbildung_DeepLearning_1.jpg}
 	\caption{Künstliches Neuronales Netz vs. Deep Learning \cite{Abbildung4}}
 	\label{fig:fig4}
 \end{figure}
+\newpage
 
 \subsection{Convolutional Neural Network}
-
-Bei einem CNN, im Deutschen "gefaltetes Neuronales Netzwerk", handelt es sich von einer Sonderform des künstlichen neuronalen Netzes, das speziell für Bild- oder Audiobearbeitung entwickelt wurde. Diese Form ist teils an den biologischen Ablauf angelehnt.\cite{Luber2019} Der Aufbau eines CNNs ist in Abbildung \ref{fig:fig5} dargestellt.
+Bei einem CNN, im Deutschen "gefaltetes Neuronales Netzwerk", handelt es sich von einer Sonderform des künstlichen neuronalen Netzes, das speziell für Bild- oder Audiobearbeitung entwickelt wurde. Diese Form ist teils an den biologischen Ablauf angelehnt.\cite{Luber2019} Der Aufbau eines CNNs ist in Abbildung \ref{fig:fig5} dargestellt.\\
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13cm,height=6cm]		{Abbildung_CNN_1.png}
+	\includegraphics[width=15cm,height=5cm]		{Abbildung_CNN_1.png}
 	\caption{Aufbau eines CNNs \cite{Abbildung5}}
 	\label{fig:fig5}
 \end{figure}
 
 In Abbildung \ref{fig:fig5} sind mehrere Schichten (Layer) zu sehen. Dabei ist die Eingabeschicht (Inputlayer) und die Ausgabeschicht (Outputlayer) bekannt. Wie im vorherigen Abschnitt auch definiert, hat ein CNN mehrere verborgene Schichten, darunter den \textbf{Convolutional Layer}, der einzelne Merkmale aus den Eingabedaten ortsunabhängig erkennt und daraufhin diese extrahiert. Diese Merkmale könnten bei einer Bildverarbeitung den Kanten, Linienformen, Farbtupfer und Faltung entsprechen, die eine Struktur darstellen. Ein Beispiel dazu wird im folgenden Abbild dargestellt.\\
-
+\\
 Diese Merkmale werden in der \textbf{Pooling-Schicht}, auch als Subsampling bekannt, bearbeitet, indem die Auflösung der Merkmale reduziert und verdichtet wird. Die Pooling-Schicht enthält keine Modellparameter, weshalb das Modell durch diese Schicht nicht wirklich lernt. Somit werden überflüssige Informationen verworfen, wodurch die Datenmenge reduziert wird. Dadurch wird die Berechnungsgeschwindigkeit erhöht. Diese zwei Schichten können so oft wie möglich verwendet werden, da sie nur Merkmale aus den Bilder extrahieren und optimierend zu Verfügung stehen. Die eigentliche Klassifikation entsteht durch den \textbf{Fully-Connected Layer}, im Deutschen "vollständig verknüpfte Schicht", der sich der wiederholten Abfolge der Convolutional- und Pooling-Schichten anschließt, indem alle Merkmale der vorgelagerten Schichten mit jedem Ausgabemerkmal verknüpft sind. Somit werden mögliche Kombinationen aus den Strukturen entworfen, die komplexere Strukturen identifizieren lassen. Wichtig ist hierbei, dass die Anzahl an Neuronen in der vollständig vernetzten Schicht abhängig von den Klassen oder Objekten sind \cite{Luber2019}. 
 	
 \section{Evalutionsmetriken}
@@ -278,7 +275,7 @@ Für die Bewertung eines Klassifizierungsvorgangs werden Performance-Metriken be
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=12cm,height=5cm]		{Wahrheitsmatrix.png}
+	\includegraphics[width=12cm,height=6cm]		{Wahrheitsmatrix.png}
 	\caption{Konfusionsmatrix  \cite{Burkov2019}(K.5.6.1)}
 	\label{fig:fig21}
 \end{figure}
@@ -359,7 +356,7 @@ Als letztes werden die aus dem erstellten Modell gewonnen Erkenntnisse für die 
 \section{Business Understanding}
 	
 Online-Versandhändler haben oft eine hohe Rückläuferquote. Diese Rückläuferquote kommt zum Beispiel durch den Kauf von Artikeln in verschiedenen Größen zustande. Die nicht passenden Größen werden dann vom Käufer wieder zurückgesendet. Unter diese Versandhändler fällt, mit einer Rückläuferquote von bis zu 50\%, auch das Unternehmen Zalando. Dabei müssen 97\% der zurückgesendeten Produkte wieder eingelagert und verkauft werden \cite{Hoefer2018}. Für den erneuten Verkauf werden die Produkte, in diesem Betrachtungsfall Klamotten, identifiziert, gelabelt und bei Bedarf wieder eingelagert. Das Unternehmen Zalando verschickte im Jahr 2019 rund 186 Millionen Bestellungen \cite{Rabe2021}. Wenn man davon ausgeht, dass eine Bestellung 4 Artikel beinhaltet und 50\% der Bestellungen wieder zurückgesendet werden, ergibt das 372 Millionen Artikel, die wieder neu gelabelt und eingelagert werden müssen.\\
-	
+\\
 Die Unterstützung und Optimierung der Rückläuferbearbeitung, kann zum Beispiel durch eine AI gestützte Klassifikation gewährleistet werden. Mit diesem Ansatz kann dann die zu einem Artikel zugehörige Kategorie, auf Basis von Bildern, bestimmt werden. Damit ergibt sich die Frage- bzw. Problemstellung, inwiefern können Machine Learning Algorithmen bei der Klassifizierung von Bildern einzelner Kleidungsstücke unterstützen?
 	
 \section{Data Understanding}
@@ -518,7 +515,7 @@ In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und w
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13.5cm, height=10cm]		{ExperimentModelTrainingsphase_2.png}
+	\includegraphics[width=13.5cm, height=11cm]		{ExperimentModelTrainingsphase_2.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 2)}
 	\label{fig:fig16}
 \end{figure}
@@ -542,7 +539,7 @@ In diesem Modellierungsschritt wird der Fokus auf die Leistung der Prognosen gel
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13cm,height=15cm]		{ExperimentModelTrainingsphase_3.png}
+	\includegraphics[width=14cm,height=16cm]		{ExperimentModelTrainingsphase_3.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig31}
 \end{figure}
@@ -563,7 +560,7 @@ Aus den Daten im Abbild \ref{fig:fig18} kann die durchschnittliche Genauigkeit u
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=10cm,height=8cm]		{ExperimenteEval1.png}
+	\includegraphics[width=10cm,height=7cm]		{ExperimenteEval1.png}
 	\caption{ Bewertung Testphase \cite{HK22}(Experiment 3)}
 	\label{fig:fig18}
 \end{figure}
@@ -615,12 +612,14 @@ Im Abbild \ref{fig:fig30} sind die Lösungen des optimierten Modells mit den Wer
 		\label{tab:differenz}
 	\end{center}
 \end{table}
-
+\newpage
 Durch die Tabelle \ref{tab:differenz} werden die Ergebnisse deutlicher beschrieben. Da dieses Modell nur die Überanpassung bearbeitet hat, ist auch demnach keine Verbesserung des Modells ersichtlich. Die Trefferquoten wurden bei den Klassen Trouser, Shirt und Pullover um $1\%$ verbessert. Die Vorhersage für die Klassen Coat und Dress haben sich im Gegenzug verschlechtert. Da das Modell bisher nicht optimiert wurde, wäre die Empfehlung in diesem Fall, den Sprung zur Modellierung \ref{model:ep3} zurück zu machen. 
 
 \subsection{Evaluation Experiment 3}\label{eval:eval3}
 
-Durch das dritte Experiment wurde das Modell noch einmal optimiert. Dies wird in den nächsten Schritten näher betrachtet und es wird ein Vergleich zum alten Modell anhand einer Tabelle erstellt, die die Differenz der Ergebnisse darstellt. Die durchschnittliche Genauigkeit beträgt für dieses Modell $92.97\%$ und der durchschnittlicher Verlust $21.09\%$.
+Durch das dritte Experiment wurde das Modell noch einmal optimiert. Dies wird in den nächsten Schritten näher betrachtet und es wird ein Vergleich zum alten Modell anhand einer Tabelle erstellt, die die Differenz der Ergebnisse darstellt. Die durchschnittliche Genauigkeit beträgt für dieses Modell $92.97\%$ und der durchschnittlicher Verlust $21.09\%$.\\
+\\
+Im Abbild \ref{fig:fig20} werden die Klassen mit den erzielten Ergebnissen aus dem letzten Modell und den Ergebnissen aus dem aktuellen Modell dargestellt. Wenn die Ergebnisse des letzten Modells nicht aufgeführt sind, bedeutet das, dass die Leistung der Vorhersagen sich für diese Klassen nicht verändert hat. Im nächsten Schritt werden diese Änderungen im Detail betrachtet, indem die Differenz der Ergebnisse berechnet und in einer Tabelle dargestellt wird. Ein Beispiel dazu zeigt die folgende Tabelle \ref{tab:differenz2}.
 
 \begin{figure}[h!]
 	\centering
@@ -629,8 +628,7 @@ Durch das dritte Experiment wurde das Modell noch einmal optimiert. Dies wird in
 	\label{fig:fig20}
 \end{figure}
 
-Im Abbild \ref{fig:fig20} werden die Klassen mit den erzielten Ergebnissen aus dem letzten Modell und den Ergebnissen aus dem aktuellen Modell dargestellt. Wenn die Ergebnisse des letzten Modells nicht aufgeführt sind, bedeutet das, dass die Leistung der Vorhersagen sich für diese Klassen nicht verändert hat. Im nächsten Schritt werden diese Änderungen im Detail betrachtet, indem die Differenz der Ergebnisse berechnet und in einer Tabelle dargestellt wird. Ein Beispiel dazu zeigt die folgende Tabelle \ref{tab:differenz2}.
-
+\newpage
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
@@ -663,9 +661,8 @@ Im Abbild \ref{fig:fig20} werden die Klassen mit den erzielten Ergebnissen aus d
 	\end{center}
 \end{table}
 
-Durch die Tabelle ist es bemerkbar das sich das Modell in fast alle Klassen sich verbessert hat. Zunächst werden die Trefferquoten beschrieben, da diese zu Bewertung der einzeln Klassen sich besser eignen. Eine sehr Größe Änderung ist bei der Klasse Coat bemerkbar, diese hat sich um $10\%$ erhöht. Es werden die Klassen betrachte die im Experiment 1, die für eine schlechte Leistung erbracht hatten. Eines diese Klasse war die Coat klasse die wie auch zuvor erwähnte verbessert wurde. Die Klasse Top und Shirt haben sich in der Präzision verbessert, wobei die Klasse Shirt auch eine Verbesserung bezügliche der Trefferquote. Die einzigen Verschlechterungen sind in den Klassen Coat und Sandal, wobei Sandal sich in der Trefferquote verschlechtert und die Coat in der Präzision. Keine Änderungen sind in der Klasse Bag zu sehen. Im Abbild \ref{fig:fig20} wird es auch ersichtlich das die Klasse Trouser eine $100\%$ Trefferquote und Sandal eine $100\%$ Präzision erzielt. Das Modell erzielt nun viel besser Lösungen und kann somit genutzt werden. Weiterhin ist es möglich durch die Anwendung des Schrittes Modellierung, das Modell weiter zu optimieren. Wir setze diese Modell als das Zielmodell und vergleichen diese im späteren Abschnitt \ref{zsm:zsm} mit anderen Modellen aus dem Internet.
+Anhand der Tabelle \ref{tab:differenz2} ist es bemerkbar, dass sich das Modell, in fast alle Klassen verbessert hat. Zunächst werden die Trefferquoten beschrieben, da diese zu Bewertung der einzeln Klassen sich besser eignen. Eine sehr Größe Änderung ist bei der Klasse Coat bemerkbar, diese hat sich um $10\%$ erhöht. Es werden die Klassen betrachte die im Experiment 1, die für eine schlechte Leistung erbracht hatten. Eines diese Klasse war die Coat klasse die wie auch zuvor erwähnte verbessert wurde. Die Klasse Top und Shirt haben sich in der Präzision verbessert, wobei die Klasse Shirt auch eine Verbesserung bezügliche der Trefferquote. Die einzigen Verschlechterungen sind in den Klassen Coat und Sandal, wobei Sandal sich in der Trefferquote verschlechtert und die Coat in der Präzision. Keine Änderungen sind in der Klasse Bag zu sehen. Im Abbild \ref{fig:fig20} wird es auch ersichtlich das die Klasse Trouser eine $100\%$ Trefferquote und Sandal eine $100\%$ Präzision erzielt. Das Modell erzielt nun viel besser Lösungen und kann somit genutzt werden. Weiterhin ist es möglich durch die Anwendung des Schrittes Modellierung, das Modell weiter zu optimieren. Wir setze diese Modell als das Zielmodell und vergleichen diese im späteren Abschnitt \ref{zsm:zsm} mit anderen Modellen aus dem Internet.
 
-\newpage
 \section{Deployment}\label{dp:dp}
 
 Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden können, kann man zum Beispiel das Modell aus dem dritten Experiment cloud-basiert als Service bereitstellen. Eine mögliche Zielgruppe ist vor allem der Bereich Online-Retail. Dazu könnte für die Verw endung des Services, durch die Mitarbeiter eines Unternehmens, eine Benutzeroberfläche erstellt werden um dann eigene Bilddaten zu importieren und danach an den Service weiterzugeben. Dies könnte zum Beispiel bei der automatischen Generierung von Bildbeschreibungen unterstützen. Ein weiterer möglicher Anwendungsfall wäre, wenn die Bilddaten aus einem Kamerasensor stammen und diese durch den Service automatisch klassifiziert werden. Diese Klassifizierung kann dann, wie anfangs in der Problemstellung beschrieben, bei Retouren das automatische Labeln der Waren ermöglichen. 
@@ -674,7 +671,7 @@ Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden
 \chapter{Zusammenfassung und Ausblick}\label{zsm:zsm}
 
 
-Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert und evaluiert. Während dem optimieren sind Problem wie zum Beispiel Überanpassung entstanden, welches verhindert werden sollte um genauere Ergebnisse aus dem Modell zu erzielen. Diesbezüglich wurde die Tensorflow Framework für Python benutzt. Dabei Liefert das Framework einige Schicht die es erleichtern das Modell zu erstellen und zu optimieren. Ein Beispiel dazu sind die Conv2D-, Dense-, Flatten-, Dropout-Layer. Nun wird versucht ein Modell aus dem Internet mit diesem Modell zu vergleichen. Diesbezüglich betrachten wir das Modell von Chinmay Rane, welches auf Kaggle auf der Seite \url{https://www.kaggle.com/fuzzywizard/fashion-mnist-cnn-keras-accuracy-93} aufzufinden ist. Das Modell von Chinmay Rane wird wie folgt definiert. 
+Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert und evaluiert. Während dem optimieren sind Problem wie zum Beispiel Überanpassung entstanden, welches verhindert werden sollte um genauere Ergebnisse aus dem Modell zu erzielen. Diesbezüglich wurde die Tensorflow Framework für Python benutzt. Dabei Liefert das Framework einige Schicht die es erleichtern das Modell zu erstellen und zu optimieren. Ein Beispiel dazu sind die Conv2D-, Dense-, Flatten-, Dropout-Layer. Nun wird versucht ein Modell aus dem Internet mit diesem Modell zu vergleichen. Diesbezüglich betrachten wir das Modell von Chinmay Rane, welches auf der Plattform Kaggle, auf der Seite \url{https://www.kaggle.com/fuzzywizard/fashion-mnist-cnn-keras-accuracy-93} aufzufinden ist. Das Modell von Chinmay Rane wird wie folgt definiert. 
 
 \begin{itemize}
 	\item Convolutional Layer (Conv2D) (Feature-Extraktor)
