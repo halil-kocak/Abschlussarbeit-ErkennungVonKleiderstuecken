@@ -668,7 +668,7 @@ Durch die Tabelle ist es bemerkbar das sich das Modell in fast alle Klassen sich
 \newpage
 \section{Deployment}\label{dp:dp}
 
-Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden können, kann man zum Beispiel das Modell aus dem dritten Experiment cloud-basiert als Service bereitstellen. Eine mögliche Zielgruppe ist vor allem der Bereich Online-Retail. Dazu könnte für die Verwendung des Services, durch die Mitarbeiter eines Unternehmens, eine Benutzeroberfläche erstellt werden um dann eigene Bilddaten zu importieren und danach an den Service weiterzugeben. Dies könnte zum Beispiel bei der automatischen Generierung von Bildbeschreibungen unterstützen. Ein weiterer möglicher Anwendungsfall wäre, wenn die Bilddaten aus einem Kamerasensor stammen und diese durch den Service automatisch klassifiziert werden. Diese Klassifizierung kann dann, wie anfangs in der Problemstellung beschrieben, bei Retouren das automatische Labeln der Waren ermöglichen. 
+Damit die implementierten Modelle den Zielgruppen zur Verfügung gestellt werden können, kann man zum Beispiel das Modell aus dem dritten Experiment cloud-basiert als Service bereitstellen. Eine mögliche Zielgruppe ist vor allem der Bereich Online-Retail. Dazu könnte für die Verw endung des Services, durch die Mitarbeiter eines Unternehmens, eine Benutzeroberfläche erstellt werden um dann eigene Bilddaten zu importieren und danach an den Service weiterzugeben. Dies könnte zum Beispiel bei der automatischen Generierung von Bildbeschreibungen unterstützen. Ein weiterer möglicher Anwendungsfall wäre, wenn die Bilddaten aus einem Kamerasensor stammen und diese durch den Service automatisch klassifiziert werden. Diese Klassifizierung kann dann, wie anfangs in der Problemstellung beschrieben, bei Retouren das automatische Labeln der Waren ermöglichen. 
 
 \newpage
 \chapter{Zusammenfassung und Ausblick}\label{zsm:zsm}
@@ -680,6 +680,7 @@ Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert u
 	\item Convolutional Layer (Conv2D) (Feature-Extraktor)
 	\item BatchNormalization (Feature-Extraktor)
 	\item Dropout (Feature-Extraktor)
+	\item Pooling Layer (MaxPooling2D) (Feature-Extraktor)
 	\item Flatten Layer (Flatten)
 	\item Fully-Connected Layer (Dense)
 	\item BatchNormalization
@@ -691,9 +692,41 @@ Bisher wurde das neuronale Netz anhand dem CRIPS-DM Modell erstellt, optimiert u
 	\label{tab:modelvonChinmayRane}
 \end{itemize}
 
-Dabei wird die Feature Extraktion drei mal Angewendet. Die Schicht BatchNormalization wird statt unseren MaxPooling Layer im Modell benützt. 
+Dabei wird die Feature Extraktion drei mal Angewendet. Die Schicht BatchNormalization beschreibt eine Technik für das Trainieren von Deep Learning Netze, bei der die Eingabedaten für jede Mini-Batch standardisiert wird. Wodurch der Lernprozess stabilisiert wird und weniger Epoche benötigt werden. Das Modell erzielt eine Trainingsleistung von $92.95\%$ Genauigkeit und ein Verlust von $18.89\%$, wobei unsere Modell eine Trainingsleistung von $95.31\%$ und ein Verlust von $15.82\%$ vorweist. Im folgenden Abbild werden die Evaluationsmetriken von dem Modell von Chinmay Rane dargestellt.
 
-Es stellt sich die Frage wie dieses Neuronale Netz weiterhin verbessert werden und eventuell andere Problemstellungen lösen kann. Bisher waren die Eingabedaten Graustufenbilder, die eine Auflösung von $28*28$ Pixel haben. Wird davon ausgegangen das die Eingabedaten nicht nur Topansichten beinhalten, sondern auch andere Sichtweise, wie zum Beispiel ein Foto mit dem Smartphone mit Farbtöne. So kann man das Neuronale Netz erweitern um mit diesen Eingabedaten eine Klassifizierung zu führen. Somit kann dann das Neuronale Netz auch Bilder Klassifizieren die mit einem Smartphone gemacht sind. Dadurch könnte das Service soweit erweitert werden, dass es nicht nur im Online-Retail genutzt werden kann, sondern auch in verschiedentliche Bereiche. Ein Beispiel dazu könnte das Rücksenden der Bestellten Ware vom Kunden sein. Es ist bekannt das Käufer bei Rücksendungen die Artikel, welche zurück geliefert werden sollen, auf einem Papier vermerken muss. Hierzu bietet das Neuronale Netz eine Automatisierung, indem der Käufer ein Bild von diese Ware hochlädt und diese automatisch klassifiziert wird. Somit hat man nicht nur den Bereich Online-Retail, sondern könnten es überall anwenden, wo es um Retouren geht.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=7cm,height=8cm]		{ExperimenteEvalChinmayRane.png}
+	\caption{ Evaluierung \cite{Rane2019} (K.8)}
+	\label{fig:fig50}
+\end{figure}
+
+Betrachten man die schlechtesten Klassen so kann man von Chinmay Rane sein Modell die Klassen Coat, Shirt, Top und Pullover auswählen. Das Modell erzielt für diese Klassen eine Trefferquote von $85\%$ bis $86\%$ und eine Präzision von $75\%$ bis $91\%$. Zunächst werden die Differenzen der Evaluationsmetriken anhand einer Tabelle beschrieben. Die folgende Tabelle zeigt bei positiven Werten , dass das Modell von Chinmay Rane eine besser Leistung mit seinem Modell erzielt hat. Bei einem negativen Wert erzielt das Modell aus Experiment 3 eine bessere Leistung.\\
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Klasse & Differenz Präzision & Differenz Trefferquote \\
+			\hline
+			Top  & +3\% & -2\%\\
+			\hline
+			Pullover   & 0 & -3\% \\
+			\hline
+			Coat   & +5\% & -5\% \\
+			\hline
+			Shirt & -10\% & +9\% \\
+			\hline
+		\end{tabular}
+		\caption{Differenz der Ergebnisse von Modell, Chinmay Rane und Experiment 3}
+		\label{tab:differenzChinmayRane}
+	\end{center}
+\end{table}
+\newpage
+
+Durch die Tabelle \ref{tab:differenzChinmayRane} wird es deutlicher in welche Klassen das Modell von Chinmay Rane besser abschneidet. Ein Beispiel ist die Klasse Shirt, für die das Modell von Rane eine besser Trefferquote erzielt als das Experiment 3. Das Experiment 3 erbringt für die Klassen Top, Pullover und Coat eine besser Trefferquote als das Modell von Rane.\\
+\\
+Es stellt sich die Frage wie dieses Neuronale Netz weiterhin verbessert werden und eventuell andere Problemstellungen lösen kann. Bisher waren die Eingabedaten Graustufenbilder, die eine Auflösung von $28*28$ Pixel haben. Wird davon ausgegangen das die Eingabedaten nicht nur Topansichten beinhalten, sondern auch andere Sichtweise, wie zum Beispiel ein Foto mit dem Smartphone mit Farbtöne. So kann man das Neuronale Netz erweitern um mit diesen Eingabedaten eine Klassifizierung zu führen. Somit kann dann das Neuronale Netz auch Bilder Klassifizieren die mit einem Smartphone gemacht sind. Dadurch könnte das Service soweit erweitert werden, dass es nicht nur im Online-Retail genutzt werden kann, sondern auch in verschiedentliche Bereiche. Ein Beispiel dazu könnte das Rücksenden der Bestellten Ware vom Kunden sein. Es ist bekannt das Käufer bei Rücksendungen die Artikel, welche zurück geliefert werden sollen, auf einem Papier vermerken muss. Hierzu bietet das Neuronale Netz eine Automatisierung, indem der Käufer ein Bild von diese Ware hochlädt und diese automatisch klassifiziert wird. Somit hat man nicht nur den Bereich Online-Retail, sondern könnten es überall anwenden, wo es sich um Retouren handelt, wie zum Beispiel der E-commerce Bereich.
 \cleardoubleoddpage
 
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
