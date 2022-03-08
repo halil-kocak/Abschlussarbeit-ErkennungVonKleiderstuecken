@@ -515,12 +515,13 @@ In diesem Experiment wird das Modell aus dem ersten Experiment übernommen und w
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=13.5cm, height=11cm]		{ExperimentModelTrainingsphase_2.png}
+	\includegraphics[width=14.5cm, height=10cm]		{ExperimentModelTrainingsphase_2.png}
 	\caption{ Bewertung Trainingsphase \cite{HK22}(Experiment 2)}
 	\label{fig:fig16}
 \end{figure}
 
 Es wird deutlich, dass die Genauigkeit der Trainingsdaten, mit der Genauigkeit der Validierungsdaten fast übereinstimmt. Durch das Hinzufügen der Dropout Schicht wird also eine Überanpassung an die Trainingsdaten verhindert, womit das Modell auf unbekannte Daten besser vorbereitet ist. Die Differenz der Genauigkeit $accuracy$ und $val\_accuracy$ wurde von $2\%$ auf  $0.38\%$ reduziert.
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=10cm,height=8cm]		{ExperimentModelBewertungsgraf_2.png}
@@ -723,7 +724,7 @@ Betrachten man die schlechtesten Klassen so kann man von Chinmay Rane sein Model
 
 Durch die Tabelle \ref{tab:differenzChinmayRane} wird es deutlicher in welche Klassen das Modell von Chinmay Rane besser abschneidet. Ein Beispiel ist die Klasse Shirt, für die das Modell von Rane eine besser Trefferquote erzielt als das Experiment 3. Das Experiment 3 erbringt für die Klassen Top, Pullover und Coat eine besser Trefferquote als das Modell von Rane.\\
 \\
-Es stellt sich die Frage wie dieses Neuronale Netz weiterhin verbessert werden und eventuell andere Problemstellungen lösen kann. Bisher waren die Eingabedaten Graustufenbilder, die eine Auflösung von $28*28$ Pixel haben. Wird davon ausgegangen das die Eingabedaten nicht nur Topansichten beinhalten, sondern auch andere Sichtweise, wie zum Beispiel ein Foto mit dem Smartphone mit Farbtöne. So kann man das Neuronale Netz erweitern um mit diesen Eingabedaten eine Klassifizierung zu führen. Somit kann dann das Neuronale Netz auch Bilder Klassifizieren die mit einem Smartphone gemacht sind. Dadurch könnte das Service soweit erweitert werden, dass es nicht nur im Online-Retail genutzt werden kann, sondern auch in verschiedentliche Bereiche. Ein Beispiel dazu könnte das Rücksenden der Bestellten Ware vom Kunden sein. Es ist bekannt das Käufer bei Rücksendungen die Artikel, welche zurück geliefert werden sollen, auf einem Papier vermerken muss. Hierzu bietet das Neuronale Netz eine Automatisierung, indem der Käufer ein Bild von diese Ware hochlädt und diese automatisch klassifiziert wird. Somit hat man nicht nur den Bereich Online-Retail, sondern könnten es überall anwenden, wo es sich um Retouren handelt, wie zum Beispiel der E-commerce Bereich.
+Es stellt sich die Frage wie dieses Neuronale Netz weiterhin verbessert werden und eventuell andere Problemstellungen lösen kann. Bisher waren die Eingabedaten Graustufenbilder, die eine Auflösung von $28*28$ Pixel haben. Wird davon ausgegangen das die Eingabedaten nicht nur Topansichten beinhalten, sondern auch andere Sichtweise, wie zum Beispiel ein Foto mit dem Smartphone mit Farbtöne. So kann man das Neuronale Netz erweitern, um mit diesen Eingabedaten eine Klassifizierung zu führen. Somit kann dann das Neuronale Netz, Bilder Klassifizieren die mit einem Smartphone gemacht erstellt wurden. Dadurch könnte das Service erweitert werden, dass es nicht nur im Online-Retail genutzt werden kann, sondern auch in verschiedentliche Bereiche. Ein Beispiel dazu könnte das Rücksenden der Bestellten Ware vom Kunden sein. Es ist bekannt das Käufer bei Rücksendungen die Artikel, welche zurück geliefert werden sollen, auf einem Papier vermerken muss. Hierzu bietet das Neuronale Netz eine Automatisierung, indem der Käufer ein Bild von diese Ware hochlädt und diese automatisch klassifiziert wird. Somit hat man nicht nur den Bereich Online-Retail, sondern könnten es überall anwenden, wo es sich um Retouren handelt, wie zum Beispiel der E-commerce Bereich.
 \cleardoubleoddpage
 
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
